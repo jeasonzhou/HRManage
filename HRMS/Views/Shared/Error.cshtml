@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "错误页面";
+    Layout = null;
+}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <h1 class="text-danger">错误信息.</h1>
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>跟踪标识:</strong> <code>@Model.RequestId</code>
+            <span>发送跟踪标识给管理，处理异常信息</span>
+        </p>
+    }
+    @if (ViewData["Exception"] != null)
+    {
+        <div style="height:auto;">
+            <P class="text-danger">@ViewData["Exception"]</P>
+        </div>
+    }
+</body>
+</html>

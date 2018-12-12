@@ -1,0 +1,467 @@
+﻿@{
+    ViewData["Title"] = "主页看板";
+    Layout = ViewBag.Layout;
+}
+@section styles{
+    <link href="~/css/site.css" rel="stylesheet" />
+    <style>
+        .row {
+            margin-top: 0px;
+            padding-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+        .dashboard-stat2 {
+            margin-bottom: 0px;
+            padding-bottom: 0px
+        }
+    </style>
+}
+
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat2 ">
+                <div class="display" style="margin-bottom: 10px;">
+                    <div class="number">
+                        <h3 class="font-green-sharp">
+                            <span data-counter="counterup" data-value="7800">7800</span>
+                            <small class="font-green-sharp">人</small>
+                        </h3>
+                        <small>总人数</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                        <span style="width: 100%;" class="progress-bar progress-bar-success green-sharp">
+                            <span class="sr-only">100%</span>
+                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> all of people </div>
+                        <div class="status-number"> 100% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat2 ">
+                <div class="display" style="margin-bottom: 10px;">
+                    <div class="number">
+                        <h3 class="font-red-haze">
+                            <span data-counter="counterup" data-value="1349">1349</span>
+                            <small class="font-green-sharp">人</small>
+                        </h3>
+                        <small>闲置人数</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                        <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
+                            <span class="sr-only">85%</span>
+                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title">leave unused </div>
+                        <div class="status-number"> 85% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat2 ">
+                <div class="display" style="margin-bottom: 10px;">
+                    <div class="number">
+                        <h3 class="font-blue-sharp">
+                            <span data-counter="counterup" data-value="567">567</span>
+                            <small class="font-green-sharp">人</small>
+                        </h3>
+                        <small>工作中...</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                        <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
+                            <span class="sr-only">45% grow</span>
+                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> working </div>
+                        <div class="status-number"> 45% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="dashboard-stat2 ">
+                <div class="display" style="margin-bottom: 10px;">
+                    <div class="number">
+                        <h3 class="font-purple-soft">
+                            <span data-counter="counterup" data-value="276">276</span>
+                        </h3>
+                        <small>外派人数</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                        <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
+                            <span class="sr-only">56%</span>
+                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> Assigning people </div>
+                        <div class="status-number"> 57% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content-body" id="sortable_portlets">
+    <div class="row">
+        <div class="col-lg-6 col-xs-12 col-sm-12 sortable">
+            <div class="portlet light" style="padding:0px 0px;margin:0px 0px">
+                @*<div class="portlet-title tabbable-line">
+                       
+                </div>*@
+                <div class="portlet-body">
+                    <div id="chart1" class="chart" style="width:100%;height:100%;padding-bottom: 5px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-12 sortable">
+            <div class="portlet light " style="padding:0px 0px;margin:0px 0px">
+                <div class="portlet-body">
+                    <div id="chart2" class="chart" style="width:100%;height:100%;padding-bottom: 5px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-xs-12 col-sm-12 sortable">
+            <div class="portlet light " style="padding:0px 0px;margin:0px 0px">
+                <div class="portlet-body">
+                    <div id="chart3" class="chart" style="width:100%;height:100%;padding-bottom: 5px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-12 sortable">
+            <div class="portlet light " style="padding:0px 0px;margin:0px 0px">
+                <div class="portlet-body">
+                    <div id="chart4" class="chart" style="width:100%;height:100%;padding-bottom: 5px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Bundler.RenderScripts("/RES/bundles/echarts/echarts.min.js")
+    <script type="text/javascript">
+        var step = 50;
+        function portletResize() {
+            var h = App.getViewPort().height - 1;  //高度
+            var height = Math.round((h * step) / 100);
+            $.each($('#sortable_portlets').find('.portlet.light'), function (index, item) {
+                var portletbody = $(item).children('.portlet-body');
+                var portlet_parent = $(item).parent('.sortable');
+                var resultheight = height - 
+                    parseInt(portlet_parent.css('padding-top')) -
+                    parseInt(portlet_parent.css('padding-bottom')) -
+                    parseInt(portlet_parent.css('margin-top')) -
+                    parseInt(portlet_parent.css('margin-bottom')) -
+                    parseInt(portlet_parent.css('border-top-width')) -
+                    parseInt(portlet_parent.css('border-bottom-width'));
+
+                portletbody.css("height", resultheight);
+                var chart = portletbody.children('.chart');
+                chart.css("width", portletbody.outerWidth() -
+                    parseInt(portletbody.css('padding-left')) -
+                    parseInt(portletbody.css('padding-right')) -
+                    parseInt(portletbody.css('margin-left')) -
+                    parseInt(portletbody.css('margin-right')) -
+                    parseInt(portletbody.css('border-left-width')) -
+                    parseInt(portletbody.css('border-right-width')));
+            });
+            resizeCharts();
+        }
+
+        $(function () {
+            App.addResizeHandler(portletResize);
+
+            if (window.addEventListener) {
+                document.addEventListener('fullscreenchange', function () {
+                    portletResize();
+                });
+                document.addEventListener('webkitfullscreenchange', function () {
+                    portletResize();
+                });
+                document.addEventListener('mozfullscreenchange', function () {
+                    portletResize();
+                });
+                document.addEventListener('MSFullscreenChange', function () {
+                    portletResize();
+                });
+            }
+
+            portletResize();
+            initCharts();
+        });
+
+        var chart1;
+        var chart2;
+        var chart3;
+        var chart4;
+        function initCharts() {
+            chart1 = echarts.init(document.getElementById('chart1'), 'macarons');
+            initChart1();
+            chart2 = echarts.init(document.getElementById('chart2'), 'macarons');
+            initChart2();
+            chart3 = echarts.init(document.getElementById('chart3'), 'macarons');
+            initChart3();
+            chart4 = echarts.init(document.getElementById('chart4'), 'macarons');
+            initChart4();
+        }
+
+        function resizeCharts() {
+            if (chart1 != undefined)
+                chart1.resize();
+            if (chart2 != undefined)
+                chart2.resize()
+            if (chart3 != undefined)
+                chart3.resize();
+            if (chart4 != undefined)
+                chart4.resize();
+        }
+
+        function initChart1() {
+            option = {
+                title: {
+                    text: '各部门人员占比',
+                    subtext: '全员',
+                    x: 'center'
+                },
+                grid: {
+
+                    right: 80,
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c}人 ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['系统研发', '系统运维', '招商部', '品控部', '法务部']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '65%',
+                        center: ['50%', '50%'],
+                        //显示图标注释
+                        label: {
+                            // rotate:120,
+                            position: 'inside',
+                            fontSize: 9,
+                            formatter: "{d}%",
+                        },
+                        data: [
+                            { value: 1548, name: '系统研发' },
+                            { value: 310, name: '系统运维' },
+                            { value: 234, name: '招商部' },
+                            { value: 135, name: '品控部' },
+                            { value: 335, name: '法务部' }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            }
+            chart1.setOption(option);
+        }
+        function initChart2() {
+            option = {
+                title: {
+                    text: '岗位人员占比',
+                    subtext: '全员',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                grid: {
+                    x: 15,
+                    y: 25,
+                    x2: 15,
+                    y2: 25,
+                    borderWidth: 1
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+
+                        center: ['50%', '45%'],
+                        data: [120, 200, 150, 80, 70, 110, 130],
+                        type: 'bar',
+                        label: {
+                            normal: {
+                                show: true,
+                                //在柱子显示数据
+                                textStyle: {
+                                    fontSize: 26,
+                                    fontWeight: 'bolder',
+                                },
+                            },
+
+                        },
+
+                    }
+                ]
+            }
+            chart2.setOption(option);
+        }
+        function initChart3() {
+            option = {
+                title: {
+                    text: '入职，离职人数变化',
+                    subtext: '全员',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c}人 ({d}%)"
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        data: [82, 93, 90, 93, 129, 133, 132],
+                        type: 'line',
+                        label: {
+                            normal: {
+                                show: true,
+                                //在柱子显示数据
+                                textStyle: {
+                                    fontSize: 13,
+                                    fontWeight: 'bolder',
+                                },
+                            },
+
+                        },
+                    },
+                    {
+                        data: [72, 83, 80, 83, 119, 123, 122],
+                        type: 'line',
+                        label: {
+                            normal: {
+                                show: true,
+                                //在柱子显示数据
+                                textStyle: {
+                                    fontSize: 13,
+                                    fontWeight: 'bolder',
+                                },
+                            },
+
+                        },
+                    }
+                ]
+            }
+            chart3.setOption(option);
+        }
+        function initChart4() {
+            option = {
+                //title: {
+                //    text: '基础雷达图'
+                //},
+                //tooltip: {},
+                //legend: {
+                //    data: ['预算分配', '实际开销']
+                //},
+
+                radar: {
+                    // shape: 'circle',
+                    name: {
+                        textStyle: {
+                            color: '#fff',
+                            backgroundColor: '#999',
+                            borderRadius: 3,
+                            padding: [3, 5]
+                        }
+                    },
+                    indicator: [
+                        { name: '销售', max: 6500 },
+                        { name: '管理', max: 16000 },
+                        { name: '信息技术', max: 30000 },
+                        { name: '客服', max: 38000 },
+                        { name: '研发', max: 52000 },
+                    ]
+                },
+                series: [{
+                    name: '预算 vs 开销',
+                    type: 'radar',
+                    label: {
+                        normal: {
+                            show: true,
+                            //在柱子显示数据
+                            textStyle: {
+                                fontSize: 13,
+                                fontWeight: 'bolder',
+                            },
+                        },
+
+                    },
+                    data: [
+                        {
+                            value: [4300, 10000, 28000, 35000, 50000, 19000],
+                            name: '预算分配'
+                        },
+                        {
+                            value: [5000, 14000, 28000, 31000, 42000, 21000],
+                            name: '实际开销'
+                        }
+                    ]
+                }]
+            }
+            chart4.setOption(option);
+        }
+    </script>
+}

@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "角色管理";
+    Layout = ViewBag.Layout;
+}
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="form-inline">
+
+            <div class="booking-search">
+                <div class="form-group ">
+                    <div class="fiter" data-column="0" data-name="Name">
+                        <input class="form-control" type="text" id="col0_filter" placeholder="角色名">
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <button class="btn green" width="120" id="Search">查询 <i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div id="customForm">
+    <fieldset class="userinfo">
+        <legend>角色信息</legend>
+        <div data-editor-template="Name"></div>
+    </fieldset>
+    <fieldset class="relationinfo">
+        <legend>关联信息</legend>
+        <div data-editor-template="RolePermission[].PermissionId"></div>
+    </fieldset>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                    create: {
+                        type: 'POST',
+                        url:  '@Url.Action("RoleIndexCreate", "System")'
+                    },
+                    edit: {
+                        type: 'POST',
+                        url:  '@Url.Action("RoleIndexUpdate", "System")'
+                    },
+                    remove: {
+                        type: 'POST',
+                        url:  '@Url.Action("RoleIndexDelete", "System")'
+                    }
+                },
+                table: "#myTable",
+                template: '#customForm',
+                fields: [
+                    { label: "角色名:", name: "Name", className: 'search-0' },
+                    { label: "备注:", name: "Remarks", className: 'search-1' },
+                     {
+                         label: "权限:", name: "RolePermission[].PermissionId", type: "jstree_checkbox",
+                         opts: {
+                             "core": {
+                                 "themes": {
+                                     "responsive": true
+                                 },
+                                 'check_callback': true,
+                                 'data': {
+                                     'cache':false,
+                                     'url': function (node) {
+                                         var url = "@Url.Action("PermissionTreeData", "Infra")";
+                                         return url;
+                                     },
+                                     'data': function (node) {
+                                         return { 'id': node.id };
+                                     }
+                                 }
+                             },
+                             "types": {
+                                 "default": {
+                                     "icon": "fa fa-sitemap icon-lg"
+                                 },
+                                 "file": {
+                                     "icon": "fa fa-globe icon-lg"
+                                 }
+                             },
+                             "plugins": ["types", "wholerow"],
+                             "checkbox": {
+                                 "keep_selected_style": false,//是否默认选中
+                                 "three_state": false,//父子级别级联选择
+                                 "tie_selection": false,
+                                 "cascade": "up+undetermined"
+                             }
+                         }
+                     }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                ajax: {
+                    url: "@Url.Action("RoleIndexData", "System")",
+                    type: "post"
+                },
+                order: [[3, 'desc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    { data: "Name", title: "角色名", searchable: true, orderable: true, width: "100px" },
+                    { data: "Remarks", title: "备注", searchable: true, orderable: true, width: "100px" },
+                    //{ data: "Modifier", title: "修改者", searchable: true, orderable: true, width: "100px" },
+                    //{
+                    //    data: "ModifyTime", title: "修改日期", searchable: true, orderable: true, width: "100px",
+                    //    render: function (val, type, row) {
+                    //        if (val != null && val.match(/\/Date\((\d+)\)\//gi)) {
+                    //            val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                    //            row.createtime = val;
+                    //        }
+                    //        return val;
+                    //    }
+                    //},
+                    { data: "Creator", title: "创建者", searchable: true, orderable: true, width: "100px" },
+                    {
+                        data: "CreateTime", title: "创建日期", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val != null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                ],
+                buttons: [
+                @if (Context.HasPermission(Url.Action("RoleIndexCreate", "System")))
+                {
+                    Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                }
+                  @if (Context.HasPermission(Url.Action("RoleIndexCreate", "System")))
+                {
+                    Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                }
+                    @if (Context.HasPermission(Url.Action("RoleIndexCreate", "System")))
+                {
+                    Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                }
+                ]
+            });
+
+            //editor.on('preSubmit', function (e, o, action) {
+            //    if (action !== 'remove') {
+
+            //    }
+            //});
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+    </script>
+}

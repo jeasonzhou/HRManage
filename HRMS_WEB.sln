@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B3FDE4E7-5950-4438-91B3-58BBBF293DA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5027C1DB-A07B-4FB3-8677-CC4B76B48360}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{29BB273F-0289-4B55-95FC-847454662B27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS", "HRMS\HRMS.csproj", "{D02AFA30-E9D6-424B-80EB-37CD0679FC23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS.Database", "Data\HRMS.Database\HRMS.Database.csproj", "{76E79A32-E3C9-41F0-9F33-A56843BB3F2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS.Services", "Services\HRMS.Services\HRMS.Services.csproj", "{A959C8C5-FD36-4715-A026-FD3F587D96A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D02AFA30-E9D6-424B-80EB-37CD0679FC23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02AFA30-E9D6-424B-80EB-37CD0679FC23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02AFA30-E9D6-424B-80EB-37CD0679FC23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02AFA30-E9D6-424B-80EB-37CD0679FC23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E79A32-E3C9-41F0-9F33-A56843BB3F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E79A32-E3C9-41F0-9F33-A56843BB3F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E79A32-E3C9-41F0-9F33-A56843BB3F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E79A32-E3C9-41F0-9F33-A56843BB3F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A959C8C5-FD36-4715-A026-FD3F587D96A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A959C8C5-FD36-4715-A026-FD3F587D96A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A959C8C5-FD36-4715-A026-FD3F587D96A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A959C8C5-FD36-4715-A026-FD3F587D96A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D02AFA30-E9D6-424B-80EB-37CD0679FC23} = {29BB273F-0289-4B55-95FC-847454662B27}
+		{76E79A32-E3C9-41F0-9F33-A56843BB3F2F} = {B3FDE4E7-5950-4438-91B3-58BBBF293DA3}
+		{A959C8C5-FD36-4715-A026-FD3F587D96A9} = {5027C1DB-A07B-4FB3-8677-CC4B76B48360}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AABED65-4458-4FBE-B7EF-3AE63117C608}
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

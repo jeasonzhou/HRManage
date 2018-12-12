@@ -1,0 +1,15 @@
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\HRMS.Services.deps.json
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\HRMS.Services.dll
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\HRMS.Services.pdb
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\Core.Database.Repository.dll
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\Core.Infrastructure.dll
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\Core.WebServices.dll
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\HRMS.Database.dll
+D:\HRManage\Services\HRMS.Services\bin\Debug\netstandard2.0\HRMS.Database.pdb
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.csprojAssemblyReference.cache
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.csproj.CoreCompileInputs.cache
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.AssemblyInfoInputs.cache
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.AssemblyInfo.cs
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.csproj.CopyComplete
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.dll
+D:\HRManage\Services\HRMS.Services\obj\Debug\netstandard2.0\HRMS.Services.pdb

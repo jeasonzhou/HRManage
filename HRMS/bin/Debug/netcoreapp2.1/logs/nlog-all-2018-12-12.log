@@ -1,0 +1,372 @@
+ 
+跟踪标识：              
+时间： 2018-12-12 08:45:38.7574         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVPCIKA4DE:00000003             
+时间： 2018-12-12 08:45:50.7569         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 08:48:12.9716         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVPE08A7KJ:00000002             
+时间： 2018-12-12 08:48:21.7666         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 08:51:16.5381         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVPFN47BLG:00000002             
+时间： 2018-12-12 08:51:32.9983         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIVPFN47BLI:00000012             
+时间： 2018-12-12 09:00:10.5785         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIVPFN47BLI:00000012             
+时间： 2018-12-12 09:00:10.5978         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIVPFN47BLI:00000012             
+时间： 2018-12-12 09:00:10.6040         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 10:10:13.5732         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVQRQKF5FG:00000002             
+时间： 2018-12-12 10:10:32.5831         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 10:12:16.7299         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVQSVBIAKR:00000002             
+时间： 2018-12-12 10:12:22.7595         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 10:15:30.7733         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVQUP82V82:00000002             
+时间： 2018-12-12 10:16:06.3182         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 10:57:33.2676         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVRM989C65:00000002             
+时间： 2018-12-12 10:57:40.7549         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 12:27:31.7594         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVT8HVPML2:00000001             
+时间： 2018-12-12 12:27:36.0808         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/         
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 13:39:20.9802         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVUGM558SR:00000003             
+时间： 2018-12-12 13:39:27.4413         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 14:42:42.7518         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVVK364EMM:00000002             
+时间： 2018-12-12 14:42:51.2939         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 14:47:08.7525         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVVMIEK515:00000002             
+时间： 2018-12-12 14:47:15.0773         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 14:53:31.0414         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIVVQ4ETP0H:00000002             
+时间： 2018-12-12 14:53:38.2208         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 15:20:37.7536         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLJ00993O79A:00000002             
+时间： 2018-12-12 15:20:46.4185         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-12 15:23:37.0525         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLJ00AUN73K1:00000002             
+时间： 2018-12-12 15:23:44.9228         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================

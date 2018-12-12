@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "供应商档案";
+    Layout = ViewBag.Layout;
+}
+
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="Name">
+                        <label class="control-label">供应商全称:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="ShortName">
+                        <label class="control-label">简称:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+<script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                      create: {
+                            type: 'POST',
+                            url:  '@Url.Action("SupplierIndexCreate", "Supplier")'
+                        },
+                        edit: {
+                            type: 'POST',
+                            url:  '@Url.Action("SupplierIndexUpdate", "Supplier")'
+                        },
+                        remove: {
+                            type: 'POST',
+                            url:  '@Url.Action("SupplierIndexDelete", "Supplier")'
+                        }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "名称:", name: "Name" },
+                    { label: "简称:", name: "ShortName" },
+                    { label: "地址:", name: "Address" },
+                    { label: "注册地址:", name: "RegisteredAddress" },
+                    { label: "联系人:", name: "Contact" },
+                    { label: "联系电话:", name: "Phone" },
+                    { label: "联系手机:", name: "MobilePhone" },
+                    { label: "法定代表:", name: "Representative" },
+                    {
+                        type: "datetime",
+                        label: "成立日期:",
+                        name: "Establishment"
+                    },
+                    { label: "营业期限:", name: "OperationPeriod" },
+                    { label: "注册资本:", name: "RegisteredCapital" },
+                    { label: "社会信用代码:", name: "CreditCode" },
+                   // { label: "业务类型:", name: "BusinessType" },
+                    {
+                        type: "select",
+                        label: "业务类型:",
+                        name: "BusinessType",
+                        options: [
+                            { label: "劳务服务", value: "劳务服务" },
+                            { label: "运输服务", value: "运输服务" },
+                        ]
+                    },
+                    {
+                        type: "radio",
+                        label: "是否劳务派遣资质:",
+                        name: "IsLabour",
+                        options: [
+                            { label: "是", value: true },
+                            { label: "否", value: false }
+                        ]
+                    },
+                    { label: "保证金:", name: "Deposit" },
+                    {
+                        type: "radio",
+                        label: "状态:",
+                        name: "Valid",
+                        options: [
+                            { label: "有效", value: true },
+                            { label: "禁用", value: false }
+                        ],
+                        def: true
+                    },
+                    { label: "备注:", name: "Remarks" }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                ajax: {
+                    url: "@Url.Action("SupplierIndexData", "Supplier")",
+                    type: "post"
+                },
+                order: [[0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    { data: "Name", title: "供应商全称", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "ShortName", title: "简称", searchable: true, orderable: true, width: "50px", responsivePriority: 6 },
+                    { data: "Address", title: "公司地址", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "RegisteredAddress", title: "注册地址", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Contact", title: "联系人", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Phone", title: "联系电话", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "MobilePhone", title: "联系手机", searchable: true, orderable: true, width: "50px" },
+                    { data: "Representative", title: "法定代表", searchable: true, orderable: true, width: "50px" },
+                    {
+                        data: "Establishment", title: "成立日期", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                    { data: "OperationPeriod", title: "营业期限", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "RegisteredCapital", title: "注册资本", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "CreditCode", title: "社会信用代码", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "BusinessType", title: "业务类型", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "IsLabour", title: "是否劳务派遣资质", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Deposit", title: "保证金", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Valid", title: "是否有效", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Remarks", title: "备注", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Attachment", title: "附件路径", searchable: true, orderable: true, width: "50px" }
+
+                ],
+                buttons: [
+                    { extend: "create", text: "创建", editor: editor },
+                    { extend: "edit", text: "编辑", editor: editor },
+                    { extend: "remove", text: "删除", editor: editor },
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" },
+                            { extend: "csvHtml5", text: "导出CSV" },
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            //editor.on('initCreate', function () {
+            //    editor.show(); //Shows all fields
+            //});
+
+            //editor.on('initEdit', function () {
+            //    editor.show(); //Shows all fields
+            //    editor.hide('password');
+            //});
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    ;
+                }
+            });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+</script>
+}

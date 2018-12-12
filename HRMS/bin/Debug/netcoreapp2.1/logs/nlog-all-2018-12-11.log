@@ -1,0 +1,1977 @@
+ 
+跟踪标识：              
+时间： 2018-12-11 09:17:56.7685         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGK:00000003             
+时间： 2018-12-11 09:18:05.0346         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGK:00000005             
+时间： 2018-12-11 09:18:11.2590         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGN:00000002             
+时间： 2018-12-11 09:18:31.0452         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGM:00000002             
+时间： 2018-12-11 09:18:31.9688         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGP:00000002             
+时间： 2018-12-11 09:18:32.7425         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGL:00000006             
+时间： 2018-12-11 09:18:33.3587         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGO:00000003             
+时间： 2018-12-11 09:18:33.8546         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGK:00000006             
+时间： 2018-12-11 09:18:34.1270         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGN:00000003             
+时间： 2018-12-11 09:18:34.3595         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGM:00000003             
+时间： 2018-12-11 09:18:34.5905         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGQ:00000001             
+时间： 2018-12-11 09:20:26.7007         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGQ:00000004             
+时间： 2018-12-11 09:20:31.0426         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGR:00000001             
+时间： 2018-12-11 09:22:05.8821         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000001             
+时间： 2018-12-11 09:24:08.8797         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000002             
+时间： 2018-12-11 09:24:09.7528         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000003             
+时间： 2018-12-11 09:24:10.5068         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000004             
+时间： 2018-12-11 09:24:11.0536         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000005             
+时间： 2018-12-11 09:24:11.6880         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000006             
+时间： 2018-12-11 09:24:12.2821         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:00000007             
+时间： 2018-12-11 09:24:12.4899         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV0PV11AGS:0000000E             
+时间： 2018-12-11 09:24:20.4663         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:31:12.9894         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV11BRD0S6:00000002             
+时间： 2018-12-11 09:31:19.8124         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV11BRD0S6:00000003             
+时间： 2018-12-11 09:31:35.4451         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:33:06.6871         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000002             
+时间： 2018-12-11 09:33:23.8831         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000003             
+时间： 2018-12-11 09:33:26.9403         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000004             
+时间： 2018-12-11 09:33:28.3622         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000004             
+时间： 2018-12-11 09:33:28.9770         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000005             
+时间： 2018-12-11 09:33:29.5170         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000005             
+时间： 2018-12-11 09:33:30.0893         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000006             
+时间： 2018-12-11 09:33:30.5695         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000006             
+时间： 2018-12-11 09:33:30.8109         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000007             
+时间： 2018-12-11 09:33:31.0450         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000007             
+时间： 2018-12-11 09:33:31.2796         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000008             
+时间： 2018-12-11 09:33:31.5259         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EV:00000008             
+时间： 2018-12-11 09:33:31.7628         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV12DQJ5EU:00000009             
+时间： 2018-12-11 09:33:32.0095         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:48:23.3739         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MF:00000002             
+时间： 2018-12-11 09:48:31.2754         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MF:00000003             
+时间： 2018-12-11 09:48:34.0599         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000001             
+时间： 2018-12-11 09:49:55.6783         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000002             
+时间： 2018-12-11 09:49:56.4839         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000003             
+时间： 2018-12-11 09:49:56.7806         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000004             
+时间： 2018-12-11 09:49:56.9805         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000005             
+时间： 2018-12-11 09:49:57.2207         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000006             
+时间： 2018-12-11 09:49:57.4482         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000007             
+时间： 2018-12-11 09:49:57.7377         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MG:00000008             
+时间： 2018-12-11 09:49:57.9742         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1AUV13MH:00000001             
+时间： 2018-12-11 09:51:56.1975         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:53:32.0846         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04M:00000002             
+时间： 2018-12-11 09:53:39.0544         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04M:00000003             
+时间： 2018-12-11 09:53:41.4533         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04L:00000004             
+时间： 2018-12-11 09:53:42.6955         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04M:00000004             
+时间： 2018-12-11 09:53:43.4118         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04L:00000005             
+时间： 2018-12-11 09:53:43.8770         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV1DR3A04M:00000005             
+时间： 2018-12-11 09:53:44.1391         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:54:53.0538         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1EJ6GM9J:00000002             
+时间： 2018-12-11 09:55:19.1196         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 09:56:37.3561         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1FIBCB7B:00000002             
+时间： 2018-12-11 09:56:44.5310         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV1FIBCB7C:00000001             
+时间： 2018-12-11 09:58:09.6176         
+来源： Microsoft.EntityFrameworkCore.Internal.RelationalLoggerExtensions.CommandError         
+等级： Error         
+信息： Failed executing DbCommand (21ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 150), @p2='?' (Size = 50), @p3='?' (Size = 150), @p4='?' (Size = 150), @p5='?' (DbType = DateTime2), @p6='?' (Size = 150), @p7='?' (Size = 150), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4), @p10='?' (Size = 150)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [TransferInnerDepart] ([CreateTime], [Creator], [EmployeeId], [EmployeeName], [Modifier], [ModifyTime], [PositionIn], [PositionOut], [TransferTime], [TransferType], [TransferedBy])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [TransferInnerDepart]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();         
+堆栈：  RelationalCommand.ExecuteReader => RelationalCommand.Execute => RelationalLoggerExtensions.CommandError         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV1FIBCB7C:00000001             
+时间： 2018-12-11 09:58:09.6379         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`3.Log         
+等级： Error         
+信息： An exception occurred in the database while saving changes for context type 'HRMS.Database.DataContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'PositionIn'，表 'HRMS.dbo.TransferInnerDepart'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)         
+堆栈：  DbContext.SaveChanges => CoreLoggerExtensions.SaveChangesFailed => EventDefinition`3.Log         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV1FIBCB7D:00000001             
+时间： 2018-12-11 10:00:40.0956         
+来源： Microsoft.EntityFrameworkCore.Internal.RelationalLoggerExtensions.CommandError         
+等级： Error         
+信息： Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 150), @p2='?' (Size = 50), @p3='?' (Size = 150), @p4='?' (Size = 150), @p5='?' (DbType = DateTime2), @p6='?' (Size = 150), @p7='?' (Size = 150), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4), @p10='?' (Size = 150)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [TransferInnerDepart] ([CreateTime], [Creator], [EmployeeId], [EmployeeName], [Modifier], [ModifyTime], [PositionIn], [PositionOut], [TransferTime], [TransferType], [TransferedBy])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [Id]
+FROM [TransferInnerDepart]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();         
+堆栈：  RelationalCommand.ExecuteReader => RelationalCommand.Execute => RelationalLoggerExtensions.CommandError         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV1FIBCB7D:00000001             
+时间： 2018-12-11 10:00:40.1110         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`3.Log         
+等级： Error         
+信息： An exception occurred in the database while saving changes for context type 'HRMS.Database.DataContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'PositionIn'，表 'HRMS.dbo.TransferInnerDepart'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)         
+堆栈：  DbContext.SaveChanges => CoreLoggerExtensions.SaveChangesFailed => EventDefinition`3.Log         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 10:01:48.9262         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1IF7AVR8:00000002             
+时间： 2018-12-11 10:01:57.2155         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 10:08:40.4968         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1M9R0M73:00000002             
+时间： 2018-12-11 10:08:47.3563         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV1M9R0M73:00000005             
+时间： 2018-12-11 10:09:46.5696         
+来源： Microsoft.EntityFrameworkCore.Internal.RelationalLoggerExtensions.CommandError         
+等级： Error         
+信息： Failed executing DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 150), @p3='?' (Size = 50), @p4='?' (Size = 150), @p5='?' (Size = 150), @p6='?' (DbType = DateTime2), @p7='?' (Size = 150), @p8='?' (Size = 150), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4), @p11='?' (Size = 150)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [TransferInnerDepart] ([Id], [CreateTime], [Creator], [EmployeeId], [EmployeeName], [Modifier], [ModifyTime], [PositionIn], [PositionOut], [TransferTime], [TransferType], [TransferedBy])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);         
+堆栈：  RelationalCommand.ExecuteReader => RelationalCommand.Execute => RelationalLoggerExtensions.CommandError         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV1M9R0M73:00000005             
+时间： 2018-12-11 10:09:46.5945         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`3.Log         
+等级： Error         
+信息： An exception occurred in the database while saving changes for context type 'HRMS.Database.DataContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: 当 IDENTITY_INSERT 设置为 OFF 时，不能为表 'TransferInnerDepart' 中的标识列插入显式值。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)         
+堆栈：  DbContext.SaveChanges => CoreLoggerExtensions.SaveChangesFailed => EventDefinition`3.Log         
+url: http://localhost/TransInnerDepart/TransInnerDepartIndexData         
+control: TransInnerDepart         
+action: TransInnerDepartIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 10:13:28.8747         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1OVMS89D:00000002             
+时间： 2018-12-11 10:13:35.1176         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 10:19:58.5155         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV1SKBU2HN:00000002             
+时间： 2018-12-11 10:20:25.4090         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 10:29:35.7669         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV21VTUVVQ:00000002             
+时间： 2018-12-11 10:29:42.7858         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 11:24:40.5740         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9J:00000003             
+时间： 2018-12-11 11:24:47.3252         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9J:00000006             
+时间： 2018-12-11 11:24:52.7200         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new RoleDTO() {Id = [dtoRole].Id, Name = [dtoRole].Name, Remarks = [dtoRole].Remarks, Modifier = [dtoRole].Modifier, ModifyTime = [dtoRole].ModifyTime, Creator = [dtoRole].Creator, CreateTime = [dtoRole].CreateTime, RolePermission = {from RolePermission dtoRolePermission in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.RolePermission]) where ([dtoRolePermission].RoleId == [dtoRole].Id) select new RolePermissionDTO() {CreateTime = [dtoRolePermission].CreateTime, Creator = [dtoRolePermission].Creator, Id = [dtoRolePermission].Id, Modifier = [dtoRolePermission].Modifier, ModifyTime = [dtoRolePermission].ModifyTime, PermissionId = [dtoRolePermission].PermissionId, Remarks = [dtoRolePermission].Remarks, RoleId = [dtoRolePermission].RoleId}}}.CreateTime desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9J:00000006             
+时间： 2018-12-11 11:24:52.7410         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9J:00000006             
+时间： 2018-12-11 11:24:52.7509         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9L:00000004             
+时间： 2018-12-11 11:24:56.5779         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9L:00000004             
+时间： 2018-12-11 11:24:56.5870         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9L:00000004             
+时间： 2018-12-11 11:24:56.5870         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9M:00000006             
+时间： 2018-12-11 11:26:13.2307         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： Query: '(from Permission dtoPermission in DbSet<Permission> where __result_0 select new PermissionDTO{ { 
+ ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.         
+堆栈：  NondeterministicResultCheckingVisitor.VisitResultOperators => CoreLoggerExtensions.RowLimitingOperationWithoutOrderByWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000020             
+时间： 2018-12-11 11:29:19.5866         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000020             
+时间： 2018-12-11 11:29:19.5866         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000020             
+时间： 2018-12-11 11:29:19.6113         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000021             
+时间： 2018-12-11 11:29:36.5618         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000021             
+时间： 2018-12-11 11:29:36.5618         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000021             
+时间： 2018-12-11 11:29:36.5805         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000024             
+时间： 2018-12-11 11:29:56.5521         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new RoleDTO() {Id = [dtoRole].Id, Name = [dtoRole].Name, Remarks = [dtoRole].Remarks, Modifier = [dtoRole].Modifier, ModifyTime = [dtoRole].ModifyTime, Creator = [dtoRole].Creator, CreateTime = [dtoRole].CreateTime, RolePermission = {from RolePermission dtoRolePermission in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.RolePermission]) where ([dtoRolePermission].RoleId == [dtoRole].Id) select new RolePermissionDTO() {CreateTime = [dtoRolePermission].CreateTime, Creator = [dtoRolePermission].Creator, Id = [dtoRolePermission].Id, Modifier = [dtoRolePermission].Modifier, ModifyTime = [dtoRolePermission].ModifyTime, PermissionId = [dtoRolePermission].PermissionId, Remarks = [dtoRolePermission].Remarks, RoleId = [dtoRolePermission].RoleId}}}.CreateTime desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000024             
+时间： 2018-12-11 11:29:56.5607         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV30OOAG9K:00000024             
+时间： 2018-12-11 11:29:56.5720         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 12:30:55.4633         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LQ:00000002             
+时间： 2018-12-11 12:31:02.6615         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000004             
+时间： 2018-12-11 12:31:25.9524         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000004             
+时间： 2018-12-11 12:31:25.9687         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000004             
+时间： 2018-12-11 12:31:25.9800         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000009             
+时间： 2018-12-11 12:32:51.9549         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new RoleDTO() {Id = [dtoRole].Id, Name = [dtoRole].Name, Remarks = [dtoRole].Remarks, Modifier = [dtoRole].Modifier, ModifyTime = [dtoRole].ModifyTime, Creator = [dtoRole].Creator, CreateTime = [dtoRole].CreateTime, RolePermission = {from RolePermission dtoRolePermission in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.RolePermission]) where ([dtoRolePermission].RoleId == [dtoRole].Id) select new RolePermissionDTO() {CreateTime = [dtoRolePermission].CreateTime, Creator = [dtoRolePermission].Creator, Id = [dtoRolePermission].Id, Modifier = [dtoRolePermission].Modifier, ModifyTime = [dtoRolePermission].ModifyTime, PermissionId = [dtoRolePermission].PermissionId, Remarks = [dtoRolePermission].Remarks, RoleId = [dtoRolePermission].RoleId}}}.CreateTime desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000009             
+时间： 2018-12-11 12:32:51.9662         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV45PAR8LR:00000009             
+时间： 2018-12-11 12:32:51.9775         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 12:37:19.7881         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV49BQ2M5M:00000002             
+时间： 2018-12-11 12:37:27.9677         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 12:41:22.5894         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV4BKMGD9U:00000002             
+时间： 2018-12-11 12:41:39.6529         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 13:13:25.1168         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV4THB903G:00000002             
+时间： 2018-12-11 13:13:34.8941         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 13:22:36.2036         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV52LCQPOA:00000002             
+时间： 2018-12-11 13:22:57.7991         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 13:29:44.1861         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV56L85S03:00000003             
+时间： 2018-12-11 13:31:09.5703         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:08:36.1199         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV5SBVVQT8:00000001             
+时间： 2018-12-11 14:11:20.0681         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:13:23.7735         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV5V1US0LK:00000002             
+时间： 2018-12-11 14:13:31.6644         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:14:11.9645         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV5VG2O9V5:00000002             
+时间： 2018-12-11 14:14:18.6330         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV5VG2O9V5:00000003             
+时间： 2018-12-11 14:14:23.5552         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Attendance         
+control: Attendance         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV5VG2O9V4:00000004             
+时间： 2018-12-11 14:14:26.5351         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Attendance         
+control: Attendance         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:16:30.2410         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:22:09.3063         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV63U9OSDQ:00000002             
+时间： 2018-12-11 14:22:16.6366         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 14:41:30.7984         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV6EOMRRCH:00000002             
+时间： 2018-12-11 14:41:40.0095         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 15:12:20.4598         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV700S1KAR:00000002             
+时间： 2018-12-11 15:12:34.4971         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIV700S1KAU:00000001             
+时间： 2018-12-11 15:19:32.5416         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/         
+control: Home         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV700S1KAU:00000003             
+时间： 2018-12-11 15:19:35.4955         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/         
+control: Home         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 15:29:56.7727         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV79R1Q380:00000002             
+时间： 2018-12-11 15:30:06.2508         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 15:34:16.4285         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 15:36:01.1051         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 15:54:22.3777         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV7NFRH7VG:00000001             
+时间： 2018-12-11 15:54:28.2960         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/         
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 16:32:22.2037         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJ7:00000002             
+时间： 2018-12-11 16:33:09.5738         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Position/PositionIndexData         
+control: Position         
+action: PositionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000001             
+时间： 2018-12-11 16:37:28.5017         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Attendance         
+control: Attendance         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000002             
+时间： 2018-12-11 16:37:29.7784         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000003             
+时间： 2018-12-11 16:37:31.0096         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000004             
+时间： 2018-12-11 16:37:31.9664         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000005             
+时间： 2018-12-11 16:37:32.5235         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000006             
+时间： 2018-12-11 16:37:32.7772         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIV8CN6EUJA:00000007             
+时间： 2018-12-11 16:37:33.0073         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/TransInnerDepart         
+control: TransInnerDepart         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 16:38:06.8177         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIV8FTHJCF4:00000004             
+时间： 2018-12-11 16:39:20.1304         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Supplier/SupplierIndexData         
+control: Supplier         
+action: SupplierIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 16:41:27.5270         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 16:58:00.8496         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:07:00.8446         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:10:08.8610         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:16:30.4409         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:21:12.6577         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:35:12.1695         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 17:46:18.5960         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-11 18:02:10.5899         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================

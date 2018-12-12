@@ -1,0 +1,75 @@
+﻿.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a {
+    background: #3FD5C0 !important;
+    color: #fff !important;
+}
+
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a {
+    color: #AAAAAA;
+}
+
+.page-header.navbar {
+    background-color: rgb(80, 178, 222) !important;
+}
+
+.clearfix {
+    background-color: rgb(80, 178, 222) !important;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle:hover {
+    background-color: rgb(80, 178, 222) !important;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown.open .dropdown-toggle {
+    background-color: rgb(80, 178, 222);
+}
+
+/*@media (max-width: 480px) {
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+        background-color: rgba(34, 139, 187, 0.8) !important;
+    }
+
+
+}*/
+div.modal
+{
+    padding-left:0px !important;
+}
+@media (max-width: 480px) {
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+        background-color: rgb(80, 178, 222);
+    }
+
+    .page-header.navbar .top-menu .navbar-nav > li.dropdown.open .dropdown-toggle {
+        background-color: rgb(80, 178, 222);
+    }
+}
+
+@media screen and (min-width: 480px) {
+    div.modal-dialog {
+        left: 0px;
+        right: 0px;
+        margin-right: 0px;
+        width: auto;
+    }
+
+    div.DTE_Body div.DTE_Body_Content div.DTE_Field {
+        float: left;
+        width: 50%;
+        padding: 2px 0px;
+        clear: none;
+        box-sizing: border-box;
+    }
+
+    div.DTE_Body div.DTE_Form_Content:after {
+        content: ' ';
+        display: block;
+        clear: both;
+    }
+}
+
+.row {
+    margin-right: 2px;
+    margin-left: 2px;
+}

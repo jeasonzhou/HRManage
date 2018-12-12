@@ -1,0 +1,165 @@
+﻿body {
+    overflow: hidden;
+    margin: 0px
+}
+
+#preloader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 999;
+}
+
+#preloader_center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    height: 75px;
+    margin: auto;
+}
+
+#preloader_loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    margin: auto;
+    width: 96px;
+    height: 30px;
+}
+
+#preloader_loaded {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    margin: auto;
+    font-size: 15px;
+    font-weight:bold;
+    text-align: center;
+    line-height: 30px;
+}
+
+#preloader_loading span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #9b59b6;
+    animation: loading 1.5s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        height: 2px;
+        background: #9b59b6;
+    }
+
+    15% {
+        height: 20px;
+        background: #3498db;
+    }
+
+    50% {
+        height: 2px;
+        background: #9b59b6;
+    }
+
+    100% {
+        height: 2px;
+        background: #9b59b6;
+    }
+}
+
+#mainframe {
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+}
+
+#preloader_loading span:nth-child(2) {
+    left: 12px;
+    animation-delay: .1s;
+}
+
+#preloader_loading span:nth-child(3) {
+    left: 24px;
+    animation-delay: .2s;
+}
+
+#preloader_loading span:nth-child(4) {
+    left: 36px;
+    animation-delay: .3s;
+}
+
+#preloader_loading span:nth-child(5) {
+    left: 48px;
+    animation-delay: .4s;
+}
+
+#preloader_loading span:nth-child(6) {
+    left: 50px;
+    animation-delay: .5s;
+}
+
+#preloader_loading span:nth-child(7) {
+    left: 62px;
+    animation-delay: .6s;
+}
+
+#preloader_loading span:nth-child(8) {
+    left: 74px;
+    animation-delay: .7s;
+}
+
+#preloader_loading span:nth-child(9) {
+    left: 86px;
+    animation-delay: .8s;
+}
+
+#preloader_btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    display: block;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    color: #9b59b6;
+    font-style: italic;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+#preloader_line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    margin: auto;
+    width: 120px;
+    height: 10px;
+    border: 1px solid green;
+}
+
+    #preloader_line span {
+        display: block;
+        height: 10px;
+        width: 0;
+        background-color: green;
+    }

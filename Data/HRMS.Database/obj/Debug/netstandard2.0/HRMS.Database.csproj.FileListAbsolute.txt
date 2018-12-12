@@ -1,0 +1,12 @@
+D:\HRManage\Data\HRMS.Database\bin\Debug\netstandard2.0\HRMS.Database.deps.json
+D:\HRManage\Data\HRMS.Database\bin\Debug\netstandard2.0\HRMS.Database.dll
+D:\HRManage\Data\HRMS.Database\bin\Debug\netstandard2.0\HRMS.Database.pdb
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.csprojAssemblyReference.cache
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.csproj.CoreCompileInputs.cache
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.AssemblyInfoInputs.cache
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.AssemblyInfo.cs
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.dll
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.pdb
+D:\HRManage\Data\HRMS.Database\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll
+D:\HRManage\Data\HRMS.Database\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Http.Features.xml
+D:\HRManage\Data\HRMS.Database\obj\Debug\netstandard2.0\HRMS.Database.csproj.CopyComplete

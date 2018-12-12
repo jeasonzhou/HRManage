@@ -1,0 +1,564 @@
+ 
+跟踪标识：              
+时间： 2018-12-10 13:45:20.5976         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000003             
+时间： 2018-12-10 13:45:33.5237         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/login         
+control: Home         
+action: Login         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO6:00000005             
+时间： 2018-12-10 13:45:37.2539         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO6:00000005             
+时间： 2018-12-10 13:45:37.2758         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO6:00000005             
+时间： 2018-12-10 13:45:37.2758         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000006             
+时间： 2018-12-10 13:45:38.5872         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new RoleDTO() {Id = [dtoRole].Id, Name = [dtoRole].Name, Remarks = [dtoRole].Remarks, Modifier = [dtoRole].Modifier, ModifyTime = [dtoRole].ModifyTime, Creator = [dtoRole].Creator, CreateTime = [dtoRole].CreateTime, RolePermission = {from RolePermission dtoRolePermission in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.RolePermission]) where ([dtoRolePermission].RoleId == [dtoRole].Id) select new RolePermissionDTO() {CreateTime = [dtoRolePermission].CreateTime, Creator = [dtoRolePermission].Creator, Id = [dtoRolePermission].Id, Modifier = [dtoRolePermission].Modifier, ModifyTime = [dtoRolePermission].ModifyTime, PermissionId = [dtoRolePermission].PermissionId, Remarks = [dtoRolePermission].Remarks, RoleId = [dtoRolePermission].RoleId}}}.CreateTime desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000006             
+时间： 2018-12-10 13:45:38.5872         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000006             
+时间： 2018-12-10 13:45:38.6024         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000007             
+时间： 2018-12-10 13:45:39.3699         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new PermissionDTO() {Action = [dtoPermission].Action, Control = [dtoPermission].Control, CreateTime = [dtoPermission].CreateTime, Creator = [dtoPermission].Creator, Id = [dtoPermission].Id, Modifier = [dtoPermission].Modifier, ModifyTime = [dtoPermission].ModifyTime, Name = [dtoPermission].Name, OrderIndex = [dtoPermission].OrderIndex, ParentID = [dtoPermission].ParentID, Remarks = [dtoPermission].Remarks}.Creator asc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000007             
+时间： 2018-12-10 13:45:39.3699         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000007             
+时间： 2018-12-10 13:45:39.3699         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000013             
+时间： 2018-12-10 13:46:02.3936         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Supplier/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Supplier         
+control: Supplier         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000013             
+时间： 2018-12-10 13:46:02.5752         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Supplier         
+control: Supplier         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO6:00000014             
+时间： 2018-12-10 13:46:06.2069         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Position/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO6:00000014             
+时间： 2018-12-10 13:46:06.2347         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000015             
+时间： 2018-12-10 13:46:13.2212         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Supplier/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Supplier         
+control: Supplier         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCAN08LO5:00000015             
+时间： 2018-12-10 13:46:13.2508         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Supplier         
+control: Supplier         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 14:03:09.9611         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1S:00000001             
+时间： 2018-12-10 14:03:15.0019         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/         
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1U:00000002             
+时间： 2018-12-10 14:04:42.3064         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1U:00000002             
+时间： 2018-12-10 14:04:42.3231         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1U:00000002             
+时间： 2018-12-10 14:04:42.3231         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000001             
+时间： 2018-12-10 14:04:44.2279         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new RoleDTO() {Id = [dtoRole].Id, Name = [dtoRole].Name, Remarks = [dtoRole].Remarks, Modifier = [dtoRole].Modifier, ModifyTime = [dtoRole].ModifyTime, Creator = [dtoRole].Creator, CreateTime = [dtoRole].CreateTime, RolePermission = {from RolePermission dtoRolePermission in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.RolePermission]) where ([dtoRolePermission].RoleId == [dtoRole].Id) select new RolePermissionDTO() {CreateTime = [dtoRolePermission].CreateTime, Creator = [dtoRolePermission].Creator, Id = [dtoRolePermission].Id, Modifier = [dtoRolePermission].Modifier, ModifyTime = [dtoRolePermission].ModifyTime, PermissionId = [dtoRolePermission].PermissionId, Remarks = [dtoRolePermission].Remarks, RoleId = [dtoRolePermission].RoleId}}}.CreateTime desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000001             
+时间： 2018-12-10 14:04:44.2279         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000001             
+时间： 2018-12-10 14:04:44.2488         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/RoleIndexData         
+control: System         
+action: RoleIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000002             
+时间： 2018-12-10 14:04:44.9690         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new PermissionDTO() {Action = [dtoPermission].Action, Control = [dtoPermission].Control, CreateTime = [dtoPermission].CreateTime, Creator = [dtoPermission].Creator, Id = [dtoPermission].Id, Modifier = [dtoPermission].Modifier, ModifyTime = [dtoPermission].ModifyTime, Name = [dtoPermission].Name, OrderIndex = [dtoPermission].OrderIndex, ParentID = [dtoPermission].ParentID, Remarks = [dtoPermission].Remarks}.Creator asc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000002             
+时间： 2018-12-10 14:04:44.9690         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1V:00000002             
+时间： 2018-12-10 14:04:44.9807         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/PermissionIndexData         
+control: System         
+action: PermissionIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1U:0000000A             
+时间： 2018-12-10 14:04:52.7686         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Position/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L1U:0000000A             
+时间： 2018-12-10 14:04:52.8464         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L21:00000001             
+时间： 2018-12-10 14:10:30.6684         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Position/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUCKLU2L21:00000001             
+时间： 2018-12-10 14:10:30.7221         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 14:23:56.2395         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUD08V4C2O:00000002             
+时间： 2018-12-10 14:24:04.8133         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Supplier/SupplierIndexData         
+control: Supplier         
+action: SupplierIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 14:26:22.0292         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUD1KBVB5R:00000002             
+时间： 2018-12-10 14:26:57.5913         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Supplier/SupplierIndexData         
+control: Supplier         
+action: SupplierIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 14:34:56.3841         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUD6DRNEI9:00000002             
+时间： 2018-12-10 14:35:12.3369         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Supplier/SupplierIndexData         
+control: Supplier         
+action: SupplierIndexData         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 14:41:55.8002         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90LS:00000002             
+时间： 2018-12-10 14:42:26.2882         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/Company/CompanyIndexData         
+control: Company         
+action: CompanyIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90LV:00000006             
+时间： 2018-12-10 14:49:43.5650         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'orderby new UserDTO() {AliasName = [dtoUser].AliasName, CreateTime = [dtoUser].CreateTime, Creator = [dtoUser].Creator, Id = [dtoUser].Id, IsAdmin = [dtoUser].IsAdmin, IsDisabled = [dtoUser].IsDisabled, LastLoginDatetime = [dtoUser].LastLoginDatetime, LoginName = [dtoUser].LoginName, LoginNumber = [dtoUser].LoginNumber, Modifier = [dtoUser].Modifier, ModifyTime = [dtoUser].ModifyTime, Password = [dtoUser].Password, UserRole = {from UserRole dtoUserRole in value(Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1[HRMS.Database.Entities.UserRole]) where ([dtoUserRole].UserId == [dtoUser].Id) select new UserRoleDTO() {CreateTime = [dtoUserRole].CreateTime, Creator = [dtoUserRole].Creator, Id = [dtoUserRole].Id, Modifier = [dtoUserRole].Modifier, ModifyTime = [dtoUserRole].ModifyTime, Remarks = [dtoUserRole].Remarks, RoleId = [dtoUserRole].RoleId, UserId = [dtoUserRole].UserId}}}.Creator desc' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90LV:00000006             
+时间： 2018-12-10 14:49:43.5819         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90LV:00000006             
+时间： 2018-12-10 14:49:43.5944         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log         
+等级： Warn         
+信息： The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.         
+堆栈：  RelationalQueryModelVisitor.WarnClientEval => RelationalLoggerExtensions.QueryClientEvaluationWarning => EventDefinition`1.Log         
+url: http://localhost/System/UserIndexData         
+control: System         
+action: UserIndexData         
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90M1:0000000F             
+时间： 2018-12-10 15:04:47.6895         
+来源： Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.MvcViewFeaturesLoggerExtensions.ViewNotFound         
+等级： Error         
+信息： The view 'Index' was not found. Searched locations: /Views/Position/Index.cshtml, /Views/Shared/Index.cshtml, /Pages/Shared/Index.cshtml         
+堆栈：  <ExecuteAsync>d__6.MoveNext => ViewResultExecutor.FindView => MvcViewFeaturesLoggerExtensions.ViewNotFound         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识： 0HLIUDAAN90M1:0000000F             
+时间： 2018-12-10 15:04:47.7468         
+来源： Microsoft.AspNetCore.Diagnostics.Internal.DiagnosticsLoggerExtensions.UnhandledException         
+等级： Error         
+信息： An unhandled exception has occurred while executing the request.         
+堆栈：  ExecutionContext.RunInternal => <Invoke>d__7.MoveNext => DiagnosticsLoggerExtensions.UnhandledException         
+url: http://localhost/Position         
+control: Position         
+action: Index         
+
+=======================================
+ 
+跟踪标识：              
+时间： 2018-12-10 15:35:29.9956         
+来源： HRMS.Program.Main         
+等级： Debug         
+信息： 启动Main         
+堆栈：  Program.Main         
+url:          
+control:          
+action:          
+
+=======================================
+ 
+跟踪标识： 0HLIUE88O7M13:00000001             
+时间： 2018-12-10 15:35:34.3622         
+来源： Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`2.Log         
+等级： Warn         
+信息： No type was specified for the decimal column 'Deposit' on entity type 'Supplier'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.         
+堆栈：  SqlServerModelValidator.ValidateDefaultDecimalMapping => SqlServerLoggerExtensions.DecimalTypeDefaultWarning => EventDefinition`2.Log         
+url: http://localhost/         
+control:          
+action:          
+
+=======================================
