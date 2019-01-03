@@ -1,0 +1,475 @@
+﻿@{
+    ViewBag.Title = "设备管理";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="Name">
+                        <label class="control-label">设备名称:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="DeviceIP">
+                        <label class="control-label">设备IP:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script>
+    function filterColumn(i) {
+        $('#myTable').DataTable().column(i).search(
+            $('#col' + i + '_filter').val(),
+            false,
+            false
+        ).draw();
+    }
+    var editor,editor2;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                    create: {
+                        type: 'POST',
+                        url: '@Url.Action("DeviceIndexCreate", "Device")'
+                    },
+                    edit: {
+                        type: 'POST',
+                        url: '@Url.Action("DeviceIndexUpdate", "Device")'
+                    },
+                    remove: {
+                        type: 'POST',
+                        url: '@Url.Action("DeviceIndexDelete", "Device")'
+                    }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "设备名称*:", name: "Name" },
+                    { label: "设备IP*:", name: "DeviceIP" },
+                    { label: "设备端口*:", name: "DevicePort" },
+                    {
+                        label: "所属公司:", name: "CompanyId",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url:  "@Url.Action("CompanyInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    { label: "用户名:", name: "DeviceUser" },
+                    { label: "设备密码:", name: "DevicePwd", type: "password" },
+                    {
+                        type: "select",
+                        label: "入口\\出口:",
+                        name: "IsEnter",
+                        options: [
+                            { label: "出口", value: 0 },
+                            { label: "入口", value: 1 }
+                        ],
+                        def: 1
+                    },
+                    {
+                        type: "select",
+                        label: "设备类型:",
+                        name: "DeviceType",
+                        options: [
+                            { label: "人脸识别设备", value: 1 },
+                            { label: "门禁设备", value: 2 }
+                        ],
+                        def: 1
+                    }
+                ]
+            });
+            editor2 = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                    edit: {
+                        type: 'POST',
+                        url: '@Url.Action("DeviceFaceConfig", "Infra")'
+                    }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "Id*:", name:"deviceid" },
+                    { label: "比例设置*:", name: "byFaceMatchThresholdN" },
+                    { label: "人脸质量*:", name: "byFaceQuality" },
+                    { label: "人脸比对超时时间*:", name: "byFaceRecogizeTimeOut" },
+                    { label: "人脸比对延时*:", name: "byFaceRecogizeInterval" },
+                    { label: "人脸感光度*:", name: "wFaceImageSensitometry" },
+                    { label: "真人检测*", name: "byLivingBodyDetect" },
+                    { label: "人脸阈值设置*:", name: "byFaceMatchThreshold1" },
+                    { label: "蜂鸣声时长*:", name: "wBuzzerTime" }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                ajax: {
+                    url: "@Url.Action("DeviceIndex", "Device")",
+                    type: "post"
+                },
+                order: [[0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    //{ data: "Id", title: "公司编号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Name", title: "设备名称", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    { data: "DeviceIP", title: "设备IP", searchable: true, orderable: true, width: "200px", responsivePriority: 1 },
+                    { data: "Company", title: "所属公司", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    { data: "DevicePort", title: "设备端口", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    { data: "DeviceUser", title: "用户名", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    //{ data: "DevicePwd", title: "设备密码", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    {
+                        data: "IsEnter", title: "入口\\出口", searchable: true, orderable: true, width: "100px", responsivePriority: 2,
+                        render: function (val, type, row) {
+                            if (val === 0) {
+                                return "出口";
+                            } else if (val === 1) {
+                                return "入口";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {
+                        data: "DeviceType", title: "设备类型", searchable: true, orderable: true, width: "100px", responsivePriority: 2,
+                        render: function (val, type, row) {
+
+                            if (val === 1) {
+                                return "人脸识别设备";
+                            } else if (val === 2) {
+                                return "门禁设备";
+                            } else {
+                                return "未知设备";
+                            }
+                        }
+                    },
+                    {
+                        data: "IsOnline", title: "是否在线", searchable: false, orderable: false, width: "100px", responsivePriority: 2,
+                        render: function (val, type, row) {
+                            if (val) {
+                                return '<i class="font-blue-soft font-lg fa fa-chain"\></i>';
+                            } else {
+                                return '<i class="font-red-soft font-lg fa fa-chain-broken"\></i>';
+                            }
+                        }
+                    },
+                    { data: "CompanyId", title: "所属公司ID", searchable: false, orderable: false, visible: false, width: "100px", responsivePriority: 5 }
+                ],
+                buttons: [
+                    //{ extend: "create", text: "创建", editor: editor },
+                    //{ extend: "edit", text: "编辑", editor: editor },
+                    //{ extend: "remove", text: "删除", editor: editor },
+                @if (Context.HasPermission(Url.Action("DeviceIndexCreate", "Device"), userdto, userPermissions))
+                {
+                    Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                }
+                    @if (Context.HasPermission(Url.Action("DeviceIndexUpdate", "Device"), userdto, userPermissions))
+                {
+                    Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                }
+                    @if (Context.HasPermission(Url.Action("DeviceIndexDelete", "Device"), userdto, userPermissions))
+                {
+                    Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                }
+                    @if (Context.HasPermission(Url.Action("SendBindingInfo", "Device"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: 'collection', text: '设备控制', buttons: [");
+                        Output.WriteLine("{ extend: \"edit\", text: \"下发设备信息\", action: function (e, dt, node, config) {  var rows = table.rows({ selected: true }).data(); for (var i = 0; i < rows.length; ++i) { SendBindingInfo(rows[i]['Id']); } }},");
+                        Output.WriteLine("{extend: \"edit\", text: \"设备时间同步\", action: function (e, dt, node, config) {var rows = table.rows({ selected: true }).data(); for (var i = 0; i < rows.length; ++i) { SyncDeviceTime(rows[i]['Id']); } }},");
+                        Output.WriteLine("{extend: \"edit\", text: \"开门\", action: function (e, dt, node, config) {var rows = table.rows({ selected: true }).data(); for (var i = 0; i < rows.length; ++i) { DirOpen(rows[i]['Id']); } }}");
+                        Output.WriteLine("]},");
+                        Output.WriteLine("{ extend: \"editSingle\", text: \"设备参数设置\", action: function (e, dt, node, config) {var rows = table.rows({ selected: true }).data();  GetDeviceFaceConfig(rows[0]['Id']);}},");
+                    }
+                    //{
+                    //    extend: 'editSingle', text: '设备参数设置',
+                    //    action: function (e, dt, node, config) {
+                    //        var rows = table.rows({ selected: true }).data();
+                    //        GetDeviceFaceConfig(rows[0]['Id']);
+                    //    }
+                    //},
+                    //{
+                    //    extend: 'edit', text: '关门(常关)', action: function (e, dt, node, config) {
+                    //        var rows = table.rows({ selected: true }).data();
+                    //        for (var i = 0; i < rows.length; ++i) {
+                    //            DirClose(rows[i]['Id']);
+                    //        }
+                    //    }
+                    //},
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" }
+                            //{ extend: "csvHtml5", text: "导出CSV" },
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            editor.on('initCreate', function () {
+                editor.show(); //Shows all fields
+                editor.field('Name').enable();
+            });
+
+            editor.on('initEdit', function () {
+                editor.show(); //Shows all fields
+                editor.field('DevicePwd').hide();
+                editor.field('Name').disable();
+            });
+            editor2.on('initEdit', function () {
+                editor2.show(); //Shows all fields
+                editor2.field('deviceid').hide();
+            });
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    $.each(o.data, function (key, values) {
+                        var element = $('#DTE_Field_CompanyId');
+                        o.data[key]['Company'] = $('#DTE_Field_CompanyId').select2('data')[0].text;
+                        
+                    });
+                }
+            });
+
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function SendBindingInfo(str) {
+            $.ajax({
+                url: "@Url.Action("SendBindingInfo", "Device")",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: { "Id": str },   //参数值,键值对
+                type: "POST",   //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (req) {
+                    //请求成功时处理
+                    if (req.Result) {
+                        toastr.success(req.Message);
+                    }
+                    else {
+                        toastr.error(req.Message);
+                    }
+                },
+                complete: function () {
+                    //请求完成的处理
+                },
+                error: function (res) {
+                    //请求出错处理
+                }
+            });
+        }
+
+        function DirOpen(Id) {
+            $.ajax({
+                url: "@Url.Action("DirOpen", "Infra")",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: { "Id": Id },   //参数值,键值对
+                type: "GET",   //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (req) {
+                    //请求成功时处理
+                    if (req.Result) {
+                        toastr.success(req.message);
+                    }
+                    else {
+                        toastr.error(req.message);
+                    }
+                },
+                complete: function () {
+                    //请求完成的处理
+                },
+                error: function (res) {
+                    //请求出错处理
+                }
+            });
+        }
+
+        function SyncDeviceTime(Id) {
+            $.ajax({
+                url: "@Url.Action("SyncDeviceTime", "Infra")",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: { "Id": Id },   //参数值,键值对
+                type: "GET",   //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (req) {
+                    //请求成功时处理
+                    if (req.Result) {
+                        toastr.success(req.message);
+                    }
+                    else {
+                        toastr.error(req.message);
+                    }
+                },
+                complete: function () {
+                    //请求完成的处理
+                },
+                error: function (res) {
+                    //请求出错处理
+                }
+            });
+        }
+
+        function GetDeviceFaceConfig(Id) {
+            $.ajax({
+                url: "@Url.Action("GetDeviceFaceConfig", "Infra")",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: { "Id": Id },   //参数值,键值对
+                type: "GET",   //请求方式
+                beforeSend: function () {
+                    //请求前的处理
+                },
+                success: function (req) {
+                    //请求成功时处理
+                    if (req.result) {
+                        editor2
+                            .title('设备参数编辑')
+                            .buttons('编辑')
+                            .edit($('#myTable').DataTable().rows({ selected: true })[0])
+                            .set('deviceid', Id)
+                            .set('byFaceMatchThresholdN', req.message.byFaceMatchThresholdN)
+                            .set('byFaceQuality', req.message.byFaceQuality)
+                            .set('byFaceRecogizeTimeOut', req.message.byFaceRecogizeTimeOut)
+                            .set('byFaceRecogizeInterval', req.message.byFaceRecogizeInterval)
+                            .set('wFaceImageSensitometry', req.message.wFaceImageSensitometry)
+                            .set('byLivingBodyDetect', req.message.byLivingBodyDetect)
+                            .set('byFaceMatchThreshold1', req.message.byFaceMatchThreshold1)
+                            .set('wBuzzerTime', req.message.wBuzzerTime);
+                    }
+                    else {
+                        toastr.error(req.message);
+                    }
+                },
+                complete: function () {
+                    //请求完成的处理
+                },
+                error: function (res) {
+                    //请求出错处理
+                }
+            });
+        }
+
+    @*function DirClose(Id) {
+        $.ajax({
+            url: "@Url.Action("DirClose", "Infra")",    //请求的url地址
+            dataType: "json",   //返回格式为json
+            async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            data: { "Id": Id },   //参数值,键值对
+            type: "GET",   //请求方式
+            beforeSend: function () {
+                //请求前的处理
+            },
+            success: function (req) {
+                //请求成功时处理
+                if (req.Result) {
+                    toastr.success(req.message);
+                }
+                else {
+                    toastr.error(req.message);
+                }
+            },
+            complete: function () {
+                //请求完成的处理
+            },
+            error: function (res) {
+                //请求出错处理
+            }
+        });
+    }*@
+
+    function Resize() {
+
+        $('#myTable').DataTable()
+            .columns.adjust()
+            .responsive.recalc();
+    }
+    </script>
+}

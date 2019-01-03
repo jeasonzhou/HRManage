@@ -1,0 +1,470 @@
+﻿
+@{
+    ViewBag.Title = "人脸上传";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+<style>
+
+</style>
+<script src="~/lib/qrcode/qrcode.js"></script>
+<script>
+   
+</script>
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="EmployeeId">
+                        <label class="control-label">工号:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <div class=" input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                            <div class="fiter" data-column="6" data-name="EffectiveDate">
+                                <input type="text" id="col6_filter" class="form-control" placeholder="有效期-开始">
+                            </div>
+                            <span class="input-group-addon">
+                                到
+                            </span>
+                            <div class="fiter" data-column="10" data-name="ExpirationDate">
+                                <input type="text" id="col10_filter" class="form-control" placeholder="有效期-结束">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+<div id="divImg">
+
+</div>
+@section scripts{
+<script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var QR_path;
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+
+            if (jQuery().datepicker) {
+                $('#col6_filter').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                    format: 'yyyy-mm-dd 00:00:00'
+                });
+                $('#col10_filter').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                    format: 'yyyy-mm-dd 23:59:59'
+                });
+                $('.date-picker').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true
+                });
+                ////$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
+            }
+
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                    upload: {
+                        type: 'POST',
+                        url: '@Url.Action("ImageUploadIndex", "Employee")'
+                    },
+                    create: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeImageUploadIndexCreate", "Employee")'
+                    },
+                    edit: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeImageUploadIndexUpdate", "Employee")'
+                    },
+                    remove: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeImageUploadIndexDelete", "Employee")'
+                    },
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "工号*:", name: "EmployeeId" },
+                    //{ label: "二维码:", name: "QRCode" },
+                    //{
+                    //    type: "radio",
+                    //    label: "图片人脸校验状态:",
+                    //    name: "Valid",
+                    //    options: [
+                    //        { label: "否", value: false },
+                    //        { label: "是", value: true }
+                    //    ],
+                    //    def: true
+                    //},
+
+                    {
+                        label: "设备名称/ID*:", name: "EmployeeDevice[].DeviceId",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            tags: false,
+                            allowClear: false,
+                            multiple: true,
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("DeviceInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        type: "datetime",
+                        label: "生效日期:",
+                        name: "EffectiveDate",
+                        format: 'YYYY-MM-DD HH:mm:ss',
+                        opts: {
+                            yearRange: 100
+
+                        }
+                    },
+                    {
+                        type: "datetime",
+                        label: "失效日期:",
+                        name: "ExpirationDate",
+                        format: 'YYYY-MM-DD HH:mm:ss',
+                        opts: {
+                            yearRange: 100
+
+                        }
+                    },
+                    {
+                        label: "图片:",
+                        name: "ImageUrl",
+                        type: "upload",
+                        display: function (file_id) {
+                            return '<img src="' + editor.file("files", file_id).web_path + '?width=60&height=80" width="60" height="80"/>';
+                        },
+                        clearText: "Clear",
+                        noImageText: 'No image',
+                    },
+                ]
+            });
+
+            var table = $('#myTable').DataTable({
+                lengthMenu: [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+                ajax: {
+                    url: "@Url.Action("EmployeeImageUploadIndexData", "Employee")",
+                    type: "post"
+                },
+                order: [[0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    { name: "EmployeeId", data: "EmployeeId", title: "工号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    {
+                        data: "ImageUrl",
+                        render: function (file_id) {
+
+                            return '<img class="lazy" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="' + editor.file("files", file_id).web_path + '?width=60&height=80" width="60" height="80" style="display: inline;"/>';
+                        },
+                        defaultContent: "没有图片",
+                        title: "人脸照片",
+                        width: "90px",
+                    },
+                    {
+                        data: "Valid", title: "图片人脸校验状态", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === true) {
+                                return "成功";
+                            } else if (val === false) {
+                                return "失败";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {
+                        name: "QRCode",
+                        data: "QRCode",
+                        //render: function (val) {
+                        //    return '<div class="qrCode" title="' + val + '"></div>';
+                        //},
+                        //defaultContent: "没有二维码",
+                        title: "二维码",
+                        width: "90px",
+                    },
+                    {
+                        data: "EffectiveDate", title: "生效时间", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+
+                    {
+                        data: "ExpirationDate", title: "失效时间", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                    { data: "Company", title: "所属公司", searchable: false, orderable: false, visible: false, width: "100px", responsivePriority: 5 },
+                    { data: "CompanyId", title: "所属公司ID", searchable: false, orderable: false, visible: false, width: "100px", responsivePriority: 5 }
+
+
+                ],
+                buttons: [
+                    //{ extend: "create", text: "创建", editor: editor },
+                    //{ extend: "edit", text: "编辑", editor: editor },
+                    //{ extend: "remove", text: "删除", editor: editor },
+                    @if (Context.HasPermission(Url.Action("EmployeeImageUploadIndexCreate", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("EmployeeImageUploadIndexUpdate", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("EmployeeImageUploadIndexDelete", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                    }
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" },
+                            //{ extend: "csvHtml5", text: "导出CSV" },
+                            { extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    },
+                    {
+                        extend: "excelHtml5",
+                        text: "导出二维码",
+                        exportOptions: {
+                            columns: [
+                                "EmployeeId:name",
+                                 "QRCode:name"
+                            ]
+                        }
+                    },
+                    {
+                        extend: "pdfHtml5",
+                        text: "打印PDF",
+                        action: function (e, dt, node, config)
+                        {
+                            var rows = table.rows({ selected: true }).data();
+
+                            var qrCode = new Array();
+                            var employeeId = new Array();
+
+                            for (var i = 0; i < rows.length; ++i)
+                            {
+                                qrCode[i] = rows[i]['QRCode'];
+                                employeeId[i] = rows[i]['EmployeeId'];
+                            }
+                            if (qrCode.length > 0) {
+                                if (qrCode.length <= 10) {
+                                    var url = "@Url.Action("Index", "PDF")";
+                                    openPostWindow(url, qrCode, employeeId, "打印");
+
+                                    //window.open( "@Url.Action("Index", "PDF")?qrCode=" + qrCode + "&employeeId=" + employeeId + "");
+                                }
+                                else
+                                {
+                                    toastr.error("一次打印十条数据");
+                                }
+                            }
+                            else
+                            {
+                                toastr.error("请选择要打印的数据");
+                            } 
+                        },
+                    }
+                ]
+            });
+
+            editor.on('initCreate', function () {
+                editor.show(); //Shows all fields
+                editor.field('EmployeeId').enable();
+
+            });
+
+            editor.on('initEdit', function (e, node, data, items, type) {
+                editor.show(); //Shows all fields
+                editor.field('EmployeeId').disable();
+            });
+
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    ;
+                }
+            });
+
+            table.on('draw', function () {
+
+                $("img.lazy").lazyload({
+                    effect: "fadeIn", // 载入使用何种效果
+                    event: "mouseover",
+                    failurelimit: 10 // 图片排序混乱时
+                });
+
+                //$("div.qrCode").each(function (index,obj) {
+                //    console.log(obj);
+                //    var qrcode = new QRCode(obj , {
+                //        width: 100,
+                //        height: 100
+                //    });
+                //    qrcode.makeCode(obj.title)
+                //});
+            });
+
+            table.on('responsive-display', function (e, datatable, row, showHide, update) {
+                $("img.lazy").lazyload({
+                    effect: "fadeIn", // 载入使用何种效果
+                    event: "mouseover",
+                    failurelimit: 10 // 图片排序混乱时
+                });
+            });
+
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+       function openWindow(name)  {  
+             var iWidth=1100; //弹出窗口的宽度;
+             var iHeight=550; //弹出窗口的高度;
+             var iTop = (window.screen.availHeight-30-iHeight)/2; //获得窗口的垂直位置;
+             var iLeft = (window.screen.availWidth-10-iWidth)/2; //获得窗口的水平位置;        
+           window.open('about:blank', name, "height=" + iHeight + ", width=" + iWidth +
+               ", top=" + iTop + ", left=" + iLeft +
+               ",toolbar=no, menubar=no,  scrollbars=yes,resizable=yes,location=no, status=no"
+           ); 
+       }
+
+    function openPostWindow(url, qrCode, employeeId, name) {  //url要跳转到的页面，data要传递的数据，name显示方式（可能任意命名）
+            var tempForm = document.createElement("form");
+            tempForm.id = "tempForm1";
+            tempForm.method = "post";
+            tempForm.action = url;
+            tempForm.target = name;
+            var hideInput = document.createElement("input");
+            hideInput.type = "hidden";
+            hideInput.name = "qrCode"
+            hideInput.value = qrCode;
+            tempForm.appendChild(hideInput);
+            var hideInput1 = document.createElement("input");
+            hideInput1.type = "hidden";
+            hideInput1.name = "employeeId"
+            hideInput1.value = employeeId;
+            tempForm.appendChild(hideInput1);
+            tempForm.addEventListener("onsubmit", openWindow(name));//必须用name不能只用url，否则无法传值到新页面
+            tempForm.removeEventListener("onsubmit", openWindow(name));
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            document.body.removeChild(tempForm);
+        }
+
+        function Resize() {
+            console.log("end")
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+</script>
+}
+
+

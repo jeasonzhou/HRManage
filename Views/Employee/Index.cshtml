@@ -1,0 +1,867 @@
+﻿
+@{
+    ViewBag.Title = "人员档案";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+
+
+<style>
+</style>
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="EmployeeId">
+                        <label class="control-label">工号:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="Name">
+                        <label class="control-label">姓名:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <div class=" input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                            <div class="fiter" data-column="6" data-name="EntryDate">
+                                <input type="text" id="col6_filter" class="form-control" placeholder="入职开始-日期">
+                            </div>
+                            <span class="input-group-addon">
+                                到
+                            </span>
+                            <div class="fiter" data-column="10" data-name="EntryDate1">
+                                <input type="text" id="col10_filter" class="form-control" placeholder="入职结束-日期">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+
+
+</div>
+@section scripts{
+
+    <script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var companySelected, departSelected, identityTypeSelected,employeeStatusSelected;
+        var editor;
+        var isdisposed;
+        $(document).ready(function () {
+            isdisposed = false;
+            App.initResizeHandler();
+            Layout.initAjaxContentSuccessCallback();
+            App.addResizeHandler(Resize);
+            Layout.addAjaxContentSuccessCallback(AjaxDispose);
+
+            if (jQuery().datepicker) {
+                $('#col6_filter').datepicker({
+                    language: 'zh-CN',
+                    autoclose: true,
+                    format: 'yyyy-mm-dd 00:00:00'
+                });
+                $('#col10_filter').datepicker({
+                    language: 'zh-CN',
+                    autoclose: true,
+                    format: 'yyyy-mm-dd 23:59:59'
+                });
+                $('.date-picker').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                });
+                ////$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
+            }
+
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                    create: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeIndexCreate", "Employee")'
+                    },
+                    edit: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeIndexUpdate", "Employee")'
+                    },
+                    remove: {
+                        type: 'POST',
+                        url: '@Url.Action("EmployeeIndexDelete", "Employee")'
+                    }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "工号*:", name: "EmployeeId" },
+                    { label: "姓名*:", name: "Name" },
+
+                    {
+                        type: "select",
+                        label: "证件类型*:",
+                        name: "IdentityType",
+                        options: [
+                            { label: "身份证", value: "@IdentityType.DomesticID" },
+                            { label: "护照", value: "@IdentityType.Passport" },
+                            { label: "香港身份证", value: "@IdentityType.HongKongID" },
+                            { label: "其他", value: "@IdentityType.Other" }
+                        ],
+                        def: 1
+                    },
+
+                    { label: "证件号码*:", name: "IdentityNumber" },
+                    { label: "民族*:", name: "Ethnicity", def: "汉" },
+                    {
+                        type: "datetime",
+                        label: "出生日期*:",
+                        name: "Birth",
+                        format: 'YYYY-MM-DD',
+                        opts: {
+                            yearRange: 100
+
+                        }
+                    },
+                    {
+                        type: "select",
+                        label: "性别*:",
+                        name: "Gender",
+                        options: [
+                            { label: "男", value: "男" },
+                            { label: "女", value: "女" }
+                        ],
+                        def: "男"
+                    },
+                    {
+                        type: "select",
+                        label: "文化程度*:",
+                        name: "Education",
+                        options: [
+                            { label: "博士", value: "1" },
+                            { label: "硕士", value: "2" },
+                            { label: "本科", value: "3" },
+                            { label: "大专", value: "4" },
+                            { label: "中专", value: "5" },
+                            { label: "高中", value: "6" },
+                            { label: "初中", value: "7" },
+                            { label: "小学及以下", value: "8" }
+                        ],
+                        def: "8"
+                    },
+                    { label: "户口所在地*:", name: "RegisteredResidence" },
+                    { label: "联系手机*:", name: "MobilePhone" },
+                    {
+                        label: "所属公司*:", name: "CompanyId",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("CompanyInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        label: "所属部门*:", name: "Department",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("DepartmentInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+                                        company: companySelected
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        label: "岗位:", name: "Position",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("PositionInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+                                        company: companySelected,
+                                        department: departSelected
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        label: "所属劳务公司*:", name: "LabourCompany",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("SupplierInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        label: "员工状态*:", name: "EmployeeStatus",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("EmployeeStatusInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+                                        employeeStatus: employeeStatusSelected
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        type: "select",
+                        label: "婚姻状况:",
+                        name: "Marital",
+                        options: [
+                            { label: "未婚", value: "@MaritalStatus.Single" },
+                            { label: "已婚", value: "@MaritalStatus.Married" },
+                            { label: "保密", value: "@MaritalStatus.Secrit" }
+                        ],
+                        def: 3
+                    },
+                    { label: "毕业院校:", name: "GraduateFrom" },
+                    {
+                        type: "datetime",
+                        label: "毕业时间:",
+                        name: "GraduationDate",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                    {
+                        type: "select",
+                        label: "政治面貌:",
+                        name: "Political",
+                        options: [
+                            { label: "团员", value: "1" },
+                            { label: "党员", value: "2" },
+                            { label: "群众", value: "3" }
+                        ],
+                        def: "3"
+                    },
+                    { label: "常住地址:", name: "Residence" },
+                    { label: "联系电话:", name: "Phone" },
+                    { label: "紧急联系人:", name: "EmergencyContact" },
+                    { label: "紧急联系人电话:", name: "EmContactPhone" },
+                    { label: "邮箱地址:", name: "Email" },
+                    { label: "邮政编码:", name: "ZipCode" },
+                    { label: "资格证书:", name: "Certificates" },
+                    {
+                        type: "datetime",
+                        label: "取得资格证书日期:",
+                        name: "CertificateDate",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                    {
+                        type: "datetime",
+                        label: "入职日期:",
+                        name: "EntryDate",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                    {
+                        type: "datetime",
+                        label: "离职日期:",
+                        name: "DimissionDate",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                    { label: "劳动合同期限:", name: "TermOfContract" },
+                    {
+                        type: "radio",
+                        label: "是否冻结:",
+                        name: "Valid",
+                        options: [
+                            { label: "是", value: false },
+                            { label: "否", value: true }
+                        ],
+                        def: true
+                    },
+                    {
+                        type: "select",
+                        label: "员工类型:",
+                        name: "EmployeeType",
+                        options: [
+                            { label: "正式工", value: "@EmployeeType.Normal" },
+                            { label: "实习生", value: "@EmployeeType.Trainee" },
+                            { label: "长期劳务", value: "@EmployeeType.LongTerm" },
+                            { label: "临时劳务", value: "@EmployeeType.Temporary" }
+                        ],
+                        def: 1
+                    },
+                    { label: "备注:", name: "Remarks" }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                lengthMenu: [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+                ajax: {
+                    url: "@Url.Action("EmployeeIndexData", "Employee")",
+                    type: "post"
+                },
+                rowGroup: {
+                    dataSrc: ['Group'],
+                    startRender: function (rows, group) {
+
+                        return group + ' (' + rows.count() + ' 条记录)';
+                    }
+                },
+                order: [[2, 'asc'], [1, 'asc'], [0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columnDefs: [{
+                    targets: [0],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [1],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [2],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [3],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [4],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [5],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [6],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [7],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [8],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [9],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [10],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [11],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [12],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [13],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [14],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [15],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [16],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [17],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [18],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [19],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [20],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [21],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [22],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [23],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [24],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [25],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [26],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [27],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [28],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [29],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [30],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [31],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [32],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [33],
+                    orderData: [2, 1, 0]
+                }, {
+                    targets: [34],
+                    orderData: [2, 1, 0]
+                }],
+                columns: [
+                    //{ data: "Group", title: "分组", searchable: false, orderable: true, visible: false, width: "50px", responsivePriority: 6 },
+                    { data: "Company", title: "所属公司", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Department", title: "所属部门", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Position", title: "岗位", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "EmployeeId", title: "工号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Name", title: "姓名", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    {
+                        data: "IdentityType", title: "证件类型", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "@IdentityType.DomesticID") {
+                                return "身份证";
+                            } else if (val === "@IdentityType.Passport") {
+                                return "护照";
+                            } else if (val === "@IdentityType.HongKongID") {
+                                return "香港身份证";
+                            } else if (val === "@IdentityType.Other") {
+                                return "其他";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "IdentityNumber", title: "证件号码", searchable: true, orderable: true, width: "100px", responsivePriority: 2 },
+                    { data: "Ethnicity", title: "民族", searchable: true, orderable: true, width: "100px", responsivePriority: 2 },
+                    {
+                        data: "Birth", title: "出生日期", searchable: true, orderable: true, width: "100px", responsivePriority: 2,
+                        render: function (val, type, row) {
+                            val = moment(val).format('YYYY-MM-DD');
+                            return val;
+                        }
+                    },
+                    { data: "Gender", title: "性别", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    { data: "Age", title: "年龄", searchable: true, orderable: true, width: "100px" },
+                    {
+                        data: "Marital", title: "婚姻状况", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "@MaritalStatus.Single") {
+                                return "未婚";
+                            } else if (val === "@MaritalStatus.Married") {
+                                return "已婚";
+                            } else if (val === "@MaritalStatus.Secrit") {
+                                return "保密";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {
+                        data: "Education", title: "文化程度", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "1") {
+                                return "博士";
+                            } else if (val === "2") {
+                                return "硕士";
+                            } else if (val === "3") {
+                                return "本科";
+                            } else if (val === "4") {
+                                return "大专";
+                            } else if (val === "5") {
+                                return "中专";
+                            } else if (val === "6") {
+                                return "高中";
+                            } else if (val === "7") {
+                                return "初中";
+                            } else if (val === "8") {
+                                return "小学及以下";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+
+                    { data: "GraduateFrom", title: "毕业院校", searchable: true, orderable: true, width: "50px", responsivePriority: 2 },
+                    { data: "GraduationDate", title: "毕业时间", searchable: true, orderable: true, width: "50px", responsivePriority: 2 },
+                    {
+                        data: "Political", title: "政治面貌", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "1") {
+                                return "团员";
+                            } else if (val === "2") {
+                                return "党员";
+                            } else if (val === "3") {
+                                return "群众";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "RegisteredResidence", title: "户口所在地", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Residence", title: "常住地址", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "MobilePhone", title: "联系手机", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Phone", title: "联系电话", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "EmergencyContact", title: "紧急联系人", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "EmContactPhone", title: "紧急联系人电话", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Email", title: "邮箱地址", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "ZipCode", title: "邮政编码", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "Certificates", title: "资格证书", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "CertificateDate", title: "取得资格证书日期", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    {
+                        data: "EntryDate", title: "入职日期", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                    { data: "DimissionDate", title: "离职日期", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "TermOfContract", title: "劳动合同期限", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    {
+                        data: "EmployeeStatus", title: "员工状态", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === 1) {
+                                return "未入职";
+                            } else if (val === 2) {
+                                return "在职";
+                            } else if (val === 3) {
+                                return "离职";
+                            } else if (val === 4) {
+                                return "黑名单";
+                            } else if (val === 5) {
+                                return "失效";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {
+                        data: "Valid", title: "是否冻结", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === true) {
+                                return "否";
+                            } else if (val === false) {
+                                return "是";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "Remarks", title: "备注", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    {
+                        data: "EmployeeType", title: "员工类型", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "@EmployeeType.Normal") {
+                                return "正式工";
+                            } else if (val === "@EmployeeType.Trainee") {
+                                return "实习生";
+                            } else if (val === "@EmployeeType.LongTerm") {
+                                return "长期劳务";
+                            } else if (val === "@EmployeeType.Temporary") {
+                                return "临时劳务";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "LabourCompany", title: "所属劳务公司", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Attachment", title: "附件路径", searchable: true, orderable: true, width: "50px" },
+                    { data: "EntryDate1", title: "", searchable: true, orderable: false, visible: false, width: "80px" },
+                    { data: "CompanyId", title: "所属公司ID", searchable: false, orderable: false, visible: false, width: "100px", responsivePriority: 5 }
+                ],
+                buttons: [
+                    //{ extend: "create", text: "创建", editor: editor },
+                    //{ extend: "edit", text: "编辑", editor: editor },
+                    //{ extend: "remove", text: "删除", editor: editor },
+                    @if (Context.HasPermission(Url.Action("EmployeeIndexCreate", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("EmployeeIndexUpdate", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("EmployeeIndexDelete", "Employee"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                    }
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" }
+                            //{ extend: "csvHtml5", text: "导出CSV" },
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            editor.on('initCreate', function () {
+                editor.show(); //Shows all fields
+                editor.field('EmployeeId').enable();
+                companySelected = editor.field('CompanyId').val();
+                departSelected = editor.field('Department').val();
+                employeeStatusSelected = 1;
+            });
+
+            editor.on('initEdit', function (e, node, data, items, type) {
+                editor.show(); //Shows all fields
+                editor.field('EmployeeId').disable();
+                identityTypeSelected = editor.field('IdentityType').val();
+                companySelected = editor.field('CompanyId').val();
+                departSelected = editor.field('Department').val();
+                employeeStatusSelected = data.EmployeeStatus;
+            });
+
+            editor.field('IdentityType').input().on('change', function () {
+                if (editor.field('IdentityType').val() != identityTypeSelected) {
+                    identityTypeSelected = "-1";
+                    editor.field('IdentityNumber').val('');
+                }
+            });
+            editor.field( 'CompanyId' ).input().on( 'change', function () {
+                companySelected = editor.field('CompanyId').val();
+                editor.field('Department').val('');
+            });
+            editor.field( 'Department' ).input().on( 'change', function () {
+                departSelected = editor.field('Department').val();
+                editor.field('Position').val('');
+            });
+
+        //editor.field('IdentityNumber').input().on('blur', function () {
+        //    var Number = editor.field('IdentityNumber').val();
+        //    if (Number.length = 18) {
+        //        editor.field('Birth').val(Number.substring(6, 10) + "-" + Number.substring(10, 12) +"-" + Number.substring(12, 14)+" 00:00:00");
+        //    }
+        //});
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    //为公司名赋值
+                    $.each(o.data, function (key, values) {
+                        var element = $('#DTE_Field_CompanyId');
+                        o.data[key]['Company'] = $('#DTE_Field_CompanyId').select2('data')[0].text;
+                    });
+
+                    if (editor.field('IdentityType').val() == "DomesticID") {
+                        if (editor.field('IdentityNumber').val().length != 18 && editor.field('IdentityNumber').val().length != 15) {
+                            editor.field('IdentityNumber').error('身份证号码位数不对');
+                            return false;
+                        }
+                    }
+                    else if (editor.field('IdentityType').val() == "Passport") {
+                        if (editor.field('IdentityNumber').val().length != 8 && editor.field('IdentityNumber').val().length != 9) {
+                            editor.field('IdentityNumber').error('护照号码位数不对');
+                            return false;
+                        }
+                    }
+                    else if (editor.field('IdentityType').val() == "HongKongID") {
+                        if (editor.field('IdentityNumber').val().length != 10 && editor.field('IdentityNumber').val().length != 11) {
+                            editor.field('IdentityNumber').error('香港身份证号码位数不对');
+                            return false;
+                        }
+                    }
+                }
+            });
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function AjaxDispose() {
+            if (!isdisposed) {
+                isdisposed = true;
+                editor.field('CompanyId').input().off( 'change');
+                editor.field('Department').input().off( 'change');
+                editor.field('IdentityType').input().off('change');
+            }
+
+        }
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+    </script>
+}

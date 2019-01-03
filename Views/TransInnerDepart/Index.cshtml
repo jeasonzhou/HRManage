@@ -1,0 +1,376 @@
+﻿
+@{
+    ViewBag.Title = "仓内调岗";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="EmployeeId">
+                        <label class="control-label">工号:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="EmployeeName">
+                        <label class="control-label">姓名:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <div class=" input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                            <div class="fiter" data-column="6" data-name="TransferTime">
+                                <input type="text" id="col6_filter" class="form-control" placeholder="调岗开始-日期">
+                            </div>
+                            <span class="input-group-addon">
+                                到
+                            </span>
+                            <div class="fiter" data-column="10" data-name="TransferTime1">
+                                <input type="text" id="col10_filter" class="form-control" placeholder="调岗结束-日期">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+<script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+
+        var companySelected,departSelected;
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+
+
+            if (jQuery().datepicker) {
+                $('#col6_filter').datepicker({
+                    language: 'zh-CN',
+                    autoclose: true,
+                    format: 'yyyy-mm-dd 00:00:00'
+                });
+                $('#col10_filter').datepicker({
+                    language: 'zh-CN',
+                    autoclose: true,
+                    format: 'yyyy-mm-dd 23:59:59'
+                });
+                $('.date-picker').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                });
+            }
+
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                      create: {
+                            type: 'POST',
+                            url:  '@Url.Action("TransInnerDepartIndexCreate", "TransInnerDepart")'
+                        },
+                        edit: {
+                            type: 'POST',
+                            url:  '@Url.Action("TransInnerDepartIndexUpdate", "TransInnerDepart")'
+                        },
+                        remove: {
+                            type: 'POST',
+                            url:  '@Url.Action("TransInnerDepartIndexDelete", "TransInnerDepart")'
+                        }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "工号*:", name: "EmployeeId" },
+                    { label: "姓名*:", name: "EmployeeName" ,type: "readonly"},
+                    { label: "调出岗位*:", name: "PositionOut", type: "readonly"},
+                    {
+                        label: "调入岗位*:", name: "PositionIn",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("Trans_PositionInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page,
+                                        company: companySelected,
+                                        department: departSelected
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        type: "datetime",
+                        label: "调岗时间*:",
+                        name: "TransferTime",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                   // { label: "调入负责人:", name: "TransferedBy" },
+                    {
+                        label: "调入负责人*:", name: "TransferedBy",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("EmployeeInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    {
+                        type: "select",
+                        label: "调岗方式:",
+                        name: "TransferType",
+                        options: [
+                            { label: "扫码", value: "1" },
+                            { label: "手动", value: "2" },
+                        ]
+                    },
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                ajax: {
+                    url: "@Url.Action("TransInnerDepartIndexData", "TransInnerDepart")",
+                    type: "post"
+                },
+                order: [[0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    { data: "EmployeeId", title: "工号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "EmployeeName", title: "姓名", searchable: true, orderable: true, width: "50px", responsivePriority: 6 },
+                    { data: "PositionOut", title: "调出岗位", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "PositionIn", title: "调入岗位", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    {
+                        data: "TransferTime", title: "调岗时间", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                    { data: "TransferedBy", title: "调入负责人", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    {
+                        data: "TransferType", title: "调岗方式", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "1") {
+                                return "扫码";
+                            } else if (val === "2") {
+                                return "手动";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "TransferTime1", title: "", searchable: true, orderable: false, visible: false, width: "80px" }
+
+                ],
+                buttons: [
+                    //{ extend: "create", text: "创建", editor: editor },
+                    ////{ extend: "edit", text: "编辑", editor: editor },
+                    //{ extend: "remove", text: "删除", editor: editor },
+                    @if (Context.HasPermission(Url.Action("TransInnerDepartIndexCreate", "TransInnerDepart"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                    }
+                    @*@if (Context.HasPermission(Url.Action("TransInnerDepartIndexUpdate", "TransInnerDepart")))
+                    {
+                        Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                    }*@
+                    @if (Context.HasPermission(Url.Action("TransInnerDepartIndexDelete", "TransInnerDepart"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                    }
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" }
+                            //{ extend: "csvHtml5", text: "导出CSV" },
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            //editor.on('initCreate', function () {
+            //    editor.show(); //Shows all fields
+            //});
+
+            //editor.on('initEdit', function () {
+            //    editor.show(); //Shows all fields
+            //    editor.hide('password');
+            //});
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    ;
+                }
+            });
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        editor.field('PositionIn').input().on('change', function () {
+            if (editor.field('PositionIn').val() == editor.field('PositionOut').val()) {
+                editor.field('PositionIn').val(null);
+                toastr.error("调入部门不能为调出部门", "", { target: '.page-content-body' });
+            }
+        });
+        editor.field('TransferedBy').input().on('change', function () {
+            console.log(editor.field('TransferedBy').val());
+                if (editor.field('EmployeeId').val() == editor.field('TransferedBy').val()) {
+                editor.field('TransferedBy').val(null);
+                toastr.error("调入负责人不能为调岗人员", "", { target: '.page-content-body' });
+            }
+        });
+        editor.field( 'EmployeeId' ).input().on( 'blur', function () {
+                $.ajax({
+                    url: "@Url.Action("EmployeeSelectDataForTransInner", "Infra")",    //请求的url地址
+                    dataType: "json",   //返回格式为json
+                    async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                    data: { "employeeId": editor.field('EmployeeId').val() },    //参数值,键值对
+                    type: "GET",   //请求方式
+                    beforeSend: function () {
+                        //请求前的处理
+                    },
+                    success: function (req) {
+                        //请求成功时处理
+                        editor.field('EmployeeId').error("");
+                        companySelected = req.Company;
+                        departSelected = req.Department;
+                        if (req.EmployeeName != "" && req.PositionOut != "")
+                        {
+                            editor.field('EmployeeName').val(req.EmployeeName);
+                            editor.field('PositionOut').val(req.PositionOut);
+                        }
+                        else
+                        {
+                            editor.field('EmployeeId').error("该工号不存在或被冻结");
+                            editor.field('EmployeeName').val(null);
+                            editor.field('PositionOut').val(null);
+                            toastr.error("该工号不存在或被冻结", "", { target: '.page-content-body' });
+                        }
+                    },
+                    complete: function () {
+                        //请求完成的处理
+                    },
+                    error: function (res) {
+                        //请求出错处理
+                    }
+                });
+            });
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+</script>
+}

@@ -1,0 +1,316 @@
+﻿
+@{
+    ViewBag.Title = "考勤打卡";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="EmployeeId">
+                        <label class="control-label">工号:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="EmployeeName">
+                        <label class="control-label">姓名:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <div class=" input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                            <div class="fiter" data-column="6" data-name="CheckTime">
+                                <input type="text" id="col6_filter" class="form-control" placeholder="签到开始-日期">
+                            </div>
+                            <span class="input-group-addon">
+                                到
+                            </span>
+                            <div class="fiter" data-column="10" data-name="CheckTime1">
+                                <input type="text" id="col10_filter" class="form-control" placeholder="签到结束-日期">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+
+            if (jQuery().datepicker) {
+                $('#col6_filter').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                    format: 'yyyy-mm-dd 00:00:00'
+                });
+                $('#col10_filter').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true,
+                    format: 'yyyy-mm-dd 23:59:59'
+                });
+                $('.date-picker').datepicker({
+                    rtl: App.isRTL(),
+                    orientation: "left",
+                    autoclose: true,
+                    todayHighlight: true,
+                    language: 'zh-CN',
+                    clearBtn: true
+                });
+                ////$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
+            }
+
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                      create: {
+                            type: 'POST',
+                            url:  '@Url.Action("AttendanceIndexCreate", "Attendance")'
+                        },
+                        edit: {
+                            type: 'POST',
+                            url:  '@Url.Action("AttendanceIndexUpdate", "Attendance")'
+                        },
+                        remove: {
+                            type: 'POST',
+                            url:  '@Url.Action("AttendanceIndexDelete", "Attendance")'
+                        }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "工号:", name: "EmployeeId" },
+                    { label: "姓名:", name: "EmployeeName", type: "readonly" },
+                    {
+                        type: "datetime",
+                        label: "打卡时间:",
+                        name: "CheckTime",
+                        format: 'YYYY-MM-DD HH:mm:ss'
+                    },
+                    {
+                        type: "select",
+                        label: "打卡方式:",
+                        name: "CheckClass",
+                        options: [
+                            { label: "补卡", value: "3" }
+                        ]
+                    },
+                    {
+                        type: "select",
+                        label: "打卡类型:",
+                        name: "CheckType",
+                        options: [
+                            { label: "进仓", value: "1" },
+                            { label: "出仓", value: "0" }
+                        ]
+                    },
+                    { label: "备注:", name: "Remarks" }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                
+                ajax: {
+                    url: "@Url.Action("AttendanceIndexData", "Attendance")",
+                    type: "post"
+                },
+                order: [[6, 'desc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    { data: "EmployeeId", title: "工号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "EmployeeName", title: "姓名", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    { data: "Department", title: "所属仓库/部门", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    { data: "Position", title: "所属岗位", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    {
+                        data: "EmployeeType", title: "员工类型", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "@EmployeeType.Normal") {
+                                return "正式工";
+                            } else if (val === "@EmployeeType.Trainee") {
+                                return "实习生";
+                            } else if (val === "@EmployeeType.LongTerm") {
+                                return "长期劳务";
+                            } else if (val === "@EmployeeType.Temporary") {
+                                return "临时劳务";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "EquipmentCode", title: "打卡设备编码", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    {
+                        data: "CheckTime", title: "打卡时间", searchable: true, orderable: true, width: "150px",
+                        render: function (val, type, row) {
+                            if (val !== null && val.match(/\/Date\((\d+)\)\//gi)) {
+                                val = moment(eval(val.replace(/\/Date\((\d+)\)\//gi, "new Date($1)"))).format('YYYY-MM-DD HH:mm:ss');
+                                row.createtime = val;
+                            }
+                            return val;
+                        }
+                    },
+                    {
+                        data: "CheckClass", title: "打卡方式", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "1") {
+                                return "人脸识别";
+                            } else if (val === "2") {
+                                return "刷卡";
+                            } else if (val === "3") {
+                                return "补卡";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {
+                        data: "CheckType", title: "打卡类型", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === "1") {
+                                return "进仓";
+                            } else if (val === "0") {
+                                return "出仓";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "Remarks", title: "备注", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "CheckTime1", title: "", searchable: true, orderable: false, visible: false, width: "80px"}
+
+                ],
+                buttons: [
+                    { extend: "create", text: "创建", editor: editor },
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" }
+                            //{ extend: "csvHtml5", text: "导出CSV" }
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            //editor.on('initCreate', function () {
+            //    editor.show(); //Shows all fields
+            //});
+
+            //editor.on('initEdit', function () {
+            //    editor.show(); //Shows all fields
+            //    editor.hide('password');
+            //});
+
+               editor.field( 'EmployeeId' ).input().on( 'blur', function () {
+                $.ajax({
+                    url: "@Url.Action("EmployeeSelectData","infra")",    //请求的url地址
+                    dataType: "json",   //返回格式为json
+                    async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                    data: { "employeeId": editor.field('EmployeeId').val() },    //参数值,键值对
+                    type: "GET",   //请求方式
+                    beforeSend: function () {
+                        //请求前的处理
+                    },
+                    success: function (req) {
+                        //请求成功时处理
+                        if (req.EmployeeName !== null) {
+                            editor.field('EmployeeName').val(req.EmployeeName);
+                            editor.field('CheckTime').val(req.CheckTime);
+                        } else {
+
+                            toastr.warning("员工信息不存在", "", { target: '#page' });
+                        }
+
+                    },
+                    complete: function () {
+                        //请求完成的处理
+                    },
+                    error: function () {
+                        //请求出错处理
+                    }
+                });
+            });
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    ;
+                }
+            });
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+    </script>
+}

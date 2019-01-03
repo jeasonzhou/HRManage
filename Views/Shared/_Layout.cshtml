@@ -1,0 +1,125 @@
+﻿@using HRMS.ViewComponents
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="人事管理系统" name="description" />
+    <meta content="ray zhang" name="author" />
+    <title>如意仓-人事管理系统</title>
+    <environment include="Development">
+        @Bundler.RenderScripts("/RES/bundles/Global.min.css")
+        @Bundler.RenderScripts("/RES/Content/themes/uniformjs/default/css/uniform.default.css")
+        @Bundler.RenderScripts("/RES/Content/bootstrap-switch/bootstrap3/bootstrap-switch.css")
+        @Bundler.RenderScripts("/RES/bundles/css/plugins.min.css")
+        @Bundler.RenderScripts("/RES/Content/assets/global/css/components.css")
+        @Bundler.RenderScripts("/RES/Content/assets/global/css/plugins.css")
+        @Bundler.RenderScripts("/RES/bundles/css/theme/layout-light.min.css")
+        @Bundler.RenderScripts("/RES/bundles/css/datatables.min.css")
+
+        <link href="~/css/CustomLauout.css?v1.0.2" rel="stylesheet" />
+        @RenderSection("styles", required: false)
+
+        @Bundler.RenderScripts("/RES/bundles/jquery.min.js")
+        @Bundler.RenderScripts("/RES/bundles/Global.min.js")
+        @Bundler.RenderScripts("/RES/bundles/jqueryval.min.js")
+        @Bundler.RenderScripts("/RES/bundles/js/plugins.min.js")
+        @Bundler.RenderScripts("/RES/bundles/js/GlobalPage.min.js?v1.0.0")
+
+        @Bundler.RenderScripts("/RES/bundles/js/datatables.min.js")
+        <script src="~/js/globalSettings.min.js?v1.0.0"></script>
+        @Bundler.RenderScripts("/RES/Plugins/Select2-4.0.1/i18n/zh-CN.js")
+        <script src="~/js/CustomScript.js?v1.0.0"></script>
+    </environment>
+    <environment exclude="Development">
+        @Bundler.RenderScripts("/RES/bundles/Global.min.css", false)
+        @Bundler.RenderScripts("/RES/Content/themes/uniformjs/default/css/uniform.default.css", false)
+        @Bundler.RenderScripts("/RES/Content/bootstrap-switch/bootstrap3/bootstrap-switch.css", false)
+        @Bundler.RenderScripts("/RES/bundles/css/plugins.min.css", false)
+        @Bundler.RenderScripts("/RES/Content/assets/global/css/components.css", false)
+        @Bundler.RenderScripts("/RES/Content/assets/global/css/plugins.css", false)
+        @Bundler.RenderScripts("/RES/bundles/css/theme/layout-light.min.css", false)
+        @Bundler.RenderScripts("/RES/bundles/css/datatables.min.css", false)
+
+        <link href="~/css/CustomLauout.css?v1.0.0" rel="stylesheet" />
+        @RenderSection("styles", required: false)
+
+        @Bundler.RenderScripts("/RES/bundles/jquery.min.js", false)
+        @Bundler.RenderScripts("/RES/bundles/Global.min.js", false)
+        @Bundler.RenderScripts("/RES/bundles/jqueryval.min.js", false)
+        @Bundler.RenderScripts("/RES/bundles/js/plugins.min.js", false)
+        @Bundler.RenderScripts("/RES/bundles/js/GlobalPage.min.js", false)
+
+        @Bundler.RenderScripts("/RES/bundles/js/datatables.min.js", false)
+
+        @Bundler.RenderScripts("/RES/Plugins/Select2-4.0.1/i18n/zh-CN.js", false)
+        <script src="~/js/CustomScript.js?v1.0.0"></script>
+        <script src="~/js/globalSettings.min.js"></script>
+    </environment>
+
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-footer-fixed">
+    <div class="page-wrapper">
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo" style="width:45px">
+
+                    <div class="menu-toggler sidebar-toggler font-blue-soft font-lg">
+                        <span></span>
+                    </div>
+                </div>
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+
+                <div style="height: 50px;float: left;margin-top: 5px;font-weight:bold;color:white"><h3 style="margin-top: 7px;">人事管理系统</h3></div>
+                <div class="top-menu">
+
+                    @Html.Partial("_HeaderPartial")
+                </div>
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <div class="clearfix">
+        </div>
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <div class="page-sidebar navbar-collapse collapse">
+                    @*@Html.Partial("_MenuPartial")*@
+                    @(await Component.InvokeAsync<Menu>())
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <div class="page-content-wrapper">
+                <div class="page-content" style="padding-top: 10px;padding-right: 10px;">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <div class="page-footer ">
+            <div class="page-footer-inner">
+                2019 &copy;
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            App.setAssetsPath("http://10.27.1.28/RES/Content/assets/");
+            App.init();
+            Layout.init();
+            CustomScript.init();
+        });
+    </script>
+</body>
+
+</html>

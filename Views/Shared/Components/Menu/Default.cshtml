@@ -1,0 +1,230 @@
+﻿@model HRMS.Models.MenuModel
+
+
+<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 10px">
+
+    @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Home").FirstOrDefault() != null)
+    {
+        <li class="nav-item  start active open">
+            <a class="ajaxify" href="@Url.Action("Index", "Home")">
+                <i class=" font-blue-soft font-lg glyphicon glyphicon-dashboard"></i>
+                <span class="title">主页</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    }
+
+    <li class="nav-item open ">
+        @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "UserIndex" && t.Control == "System").FirstOrDefault() != null ||
+       Model.UserPermissions.Where(t => t.Action == "RoleIndex" && t.Control == "System").FirstOrDefault() != null ||
+       Model.UserPermissions.Where(t => t.Action == "PermissionIndex" && t.Control == "System").FirstOrDefault() != null)
+        {
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="font-blue-soft font-lg fa fa-cogs"></i>
+                <span class="title">系统管理</span>
+                <span class="arrow open"></span>
+            </a>
+        }
+        <ul class="sub-menu" style="display:block">
+            @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "UserIndex" && t.Control == "System").FirstOrDefault() != null)
+            {
+                <li class="nav-item">
+                    <a class="ajaxify" href="@Url.Action("UserIndex","System")">
+                        <i class="font-blue-soft font-lg fa fa-cog"></i>
+                        账号管理
+                    </a>
+                </li>
+            }
+            @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "RoleIndex" && t.Control == "System").FirstOrDefault() != null)
+            {
+                <li class="nav-item">
+                    <a class="ajaxify" href="@Url.Action("RoleIndex", "System")">
+                        <i class="font-blue-soft font-lg fa fa-cog"></i>
+                        角色管理
+                    </a>
+                </li>
+            }
+            @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "PermissionIndex" && t.Control == "System").FirstOrDefault() != null)
+            {
+                <li class="nav-item">
+                    <a class="ajaxify" href="@Url.Action("PermissionIndex", "System")">
+                        <i class="font-blue-soft font-lg fa fa-cog"></i>
+                        权限管理
+                    </a>
+                </li>
+            }
+        </ul>
+    </li>
+
+    <li class="nav-item open">
+        @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Employee").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Company").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Department").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Position").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Supplier").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Attendance").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "TransInnerDepart").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "EntryIndex" && t.Control == "EmployeeOperation").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "DimissionIndex" && t.Control == "EmployeeOperation").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "EmployeeImageUploadIndex" && t.Control == "Employee").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "EmployeeQRCodeIndex" && t.Control == "Employee").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Device").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "EmployeeDevice").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "WorkGroup").FirstOrDefault() != null ||
+    Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "WorkGroupDetail").FirstOrDefault() != null)
+        {
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="font-blue-soft font-lg fa fa-tasks"></i>
+                <span class="title">人事管理</span>
+                <span class="arrow open"></span>
+            </a>
+        }
+            <ul class="sub-menu" style="display:block">
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Employee").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    人员档案
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Company").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Company")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    公司档案
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Department").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Department")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    仓/部门档案
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Position").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Position")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    岗位档案
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Supplier").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Supplier")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    供应商档案
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Attendance").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Attendance")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-list-alt"></i>
+                    考勤打卡
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "TransInnerDepart").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "TransInnerDepart")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-transfer"></i>
+                    仓内调岗
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "EntryIndex" && t.Control == "EmployeeOperation").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EntryIndex", "EmployeeOperation")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-arrow-right"></i>
+                    人员入职记录
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "DimissionIndex" && t.Control == "EmployeeOperation").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("DimissionIndex", "EmployeeOperation")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-arrow-left"></i>
+                    人员离职记录
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "EmployeeImageUploadIndex" && t.Control == "Employee").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EmployeeImageUploadIndex", "Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-upload"></i>
+                    人脸上传
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "EmployeeQRCodeIndex" && t.Control == "Employee").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EmployeeQRCodeIndex", "Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-qrcode"></i>
+                    工段报到
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "EmployeeQRCodeLeaveIndex" && t.Control == "Employee").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EmployeeQRCodeLeaveIndex", "Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-qrcode"></i>
+                    工段离岗
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "Device").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "Device")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    设备管理
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "EmployeeDevice").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "EmployeeDevice")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    员工设备绑定
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "WorkGroup").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "WorkGroup")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    工作组管理
+                </a>
+            </li>
+}
+                @if (Model.User.IsAdmin || Model.UserPermissions.Where(t => t.Action == "Index" && t.Control == "WorkGroupDetail").FirstOrDefault() != null)
+    {
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index", "WorkGroupDetail")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    工作组组员管理
+                </a>
+            </li>
+}
+            </ul>
+    </li>
+</ul>
+<!-- END SIDEBAR MENU -->

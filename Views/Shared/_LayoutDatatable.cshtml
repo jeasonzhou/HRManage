@@ -1,0 +1,33 @@
+﻿@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css" class="init">
+    div.editor-datetime {
+        z-index: 10501;
+    }
+
+    .select2-container--open {
+        z-index: 10501;
+    }
+
+    /*table.dataTable > tbody > tr.child ul.dtr-details li {
+        float: left;
+        list-style: none;
+        padding: 0px !important;
+        margin: 10px;
+    }*/
+
+    .row {
+        margin-left: -10px !important;
+        margin-right: -10px !important;
+    }
+</style>
+
+@RenderSection("styles", required: false)
+
+@RenderBody()
+
+@RenderSection("scripts", required: false)

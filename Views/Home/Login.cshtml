@@ -1,0 +1,87 @@
+﻿@model HRMS.Models.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="如意仓-人事管理系统" name="description" />
+    <meta content="ray zhang" name="author" />
+    <meta charset="utf-8" />
+    <title>如意仓-人事管理系统</title>
+    @Bundler.RenderScripts("/RES/bundles/Global.min.css")
+    @Bundler.RenderScripts("/RES/Content/assets/global/css/components.css")
+    @Bundler.RenderScripts("/RES/Content/assets/global/css/plugins.css")
+    <link href="~/css/login.css" rel="stylesheet" />
+    @Bundler.RenderScripts("/RES/bundles/jquery.min.js")
+    @Bundler.RenderScripts("/RES/bundles/jqueryval.min.js")
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+    <style>
+        body {
+            background-color: powderblue !important;
+        }
+
+        .content1 {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -150px;
+        }
+
+        .control-label, .rememberme {
+            color: #fff
+        }
+    </style>
+</head>
+<body class="login">
+    <div style="margin-left:20px;margin-top: 20px;">
+        <a href="#">
+        </a>
+    </div>
+    <div class="content" style="background-color:transparent">
+        @using (Html.BeginForm("Login", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,true,
+                                                                   new { @class = "login-form", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+        <h3 class="form-title text-center" style="color:#FFF">如意仓-人事管理系统</h3>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "control-label " })
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control placeholder-no-fix" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-actions" style="background-color:transparent;border-bottom: 0px solid #eee;">
+                <label class="rememberme mt-checkbox mt-checkbox-outline">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    记住我?
+                    <span></span>
+                </label>
+                <button type="submit" class="btn blue pull-right"> 登录</button>
+            </div>
+        }
+    </div>
+
+</body>
+</html>

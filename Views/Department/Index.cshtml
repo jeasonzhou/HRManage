@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "仓库/部门档案";
+    Layout = ViewBag.Layout;
+    var userdto = Newtonsoft.Json.JsonConvert.DeserializeObject<HRMS.Services.DTO.UserDTO>(Context.Session.GetString("User"));
+    var userPermissions = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserPermission>>(Context.Session.GetString("UserPermissions"));
+}
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="fiter col-md-6 col-xs-6" data-column="0" data-name="Name">
+                        <label class="control-label">仓库/部门名称:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col0_filter">
+                        </div>
+                    </div>
+                    <div class="fiter col-md-6 col-xs-6" data-column="1" data-name="Company">
+                        <label class="control-label">所属公司:</label>
+                        <div class="input-icon">
+                            <input class="form-control" type="text" id="col1_filter">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Search">查询<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="myTable" class="table table-striped table-bordered nowrap"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script>
+        function filterColumn(i) {
+            $('#myTable').DataTable().column(i).search(
+                $('#col' + i + '_filter').val(),
+                false,
+                false
+            ).draw();
+        }
+        var editor;
+        $(document).ready(function () {
+            App.addResizeHandler(Resize);
+            editor = new $.fn.dataTable.Editor({
+                idSrc: "Id",
+                ajax: {
+                      create: {
+                            type: 'POST',
+                            url:  '@Url.Action("DepartmentIndexCreate", "Department")'
+                        },
+                        edit: {
+                            type: 'POST',
+                            url:  '@Url.Action("DepartmentIndexUpdate", "Department")'
+                        },
+                        remove: {
+                            type: 'POST',
+                            url:  '@Url.Action("DepartmentIndexDelete", "Department")'
+                        }
+                },
+                table: "#myTable",
+                fields: [
+                    { label: "名称:", name: "Name" },
+                    {
+                        type: "radio",
+                        label: "状态:",
+                        name: "Valid",
+                        options: [
+                            { label: "有效", value: true },
+                            { label: "禁用", value: false }
+                        ],
+                        def: true
+                    },
+                    {
+                        label: "所属公司:", name: "CompanyId",
+                        type: "select2",
+                        opts: {
+                            theme: "classic",
+                            ajax: {
+                                type: 'GET',
+                                url: "@Url.Action("CompanyInfraData", "Infra")",
+                                cache: false,
+                                dataType: 'json',
+                                delay: 250,
+                                data: function (params) {
+                                    return {
+                                        term: params.term, // search term 请求参数
+                                        page: params.page
+                                    };
+                                },
+                                tags: false,
+                                allowClear: false,
+                                processResults: function (data, params) {
+                                    params.page = params.page || 1;
+                                    return {
+                                        results: data.items,//itemList
+                                        pagination: {
+                                            more: (params.page * 30) < data.total_count
+                                        }
+                                    };
+                                },
+                                multiple: false
+                            },
+                            escapeMarkup: function (markup) { return markup; },
+                            formatResult: function formatRepo(repo) { return repo.text; },
+                            formatSelection: function formatRepoSelection(repo) { return repo.text; }
+                        }
+                    },
+                    { label: "备注:", name: "Remarks" }
+                ]
+            });
+            var table = $('#myTable').DataTable({
+                ajax: {
+                    url: "@Url.Action("DepartmentIndexData", "Department")",
+                    type: "post"
+                },
+                order: [[0, 'asc']],//一定要添加
+                colReorder: {
+                    fixedColumnsLeft: 1
+                },
+                columns: [
+                    //{ data: "Id", title: "仓库/部门编号", searchable: true, orderable: true, width: "50px", responsivePriority: 1 },
+                    { data: "Name", title: "仓库/部门名称", searchable: true, orderable: true, width: "100px", responsivePriority: 1 },
+                    { data: "Company", title: "所属公司", searchable: true, orderable: true, width: "100px", responsivePriority: 5 },
+                    {
+                        data: "Valid", title: "是否冻结", searchable: true, orderable: true, width: "100px",
+                        render: function (val, type, row) {
+                            if (val === true) {
+                                return "否";
+                            } else if (val === false) {
+                                return "是";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    { data: "Remarks", title: "备注", searchable: true, orderable: true, width: "50px", responsivePriority: 5 },
+                    { data: "CompanyId", title: "所属公司ID", searchable: false, orderable: false, visible: false, width: "100px", responsivePriority: 5 }
+                ],
+                buttons: [
+                    //{ extend: "create", text: "创建", editor: editor },
+                    //{ extend: "edit", text: "编辑", editor: editor },
+                    //{ extend: "remove", text: "删除", editor: editor },
+                    @if (Context.HasPermission(Url.Action("DepartmentIndexCreate", "Department"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"create\", text: \"创建\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("DepartmentIndexUpdate", "Department"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"edit\", text: \"编辑\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("DepartmentIndexDelete", "Department"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"remove\", text: \"删除\", editor: editor },");
+                    }
+                    @if (Context.HasPermission(Url.Action("OnOff", "Department"), userdto, userPermissions))
+                    {
+                        Output.WriteLine("{ extend: \"selectedSingle\", text: \"启用\\停用\", action: function (e, dt, node, config) {  var rows = table.rows({ selected: true }).data(); DepartmentOnOff(rows[0]['Id']); }},");
+                    }
+                    {
+                        extend: 'collection',
+                        text: '导出',
+                        buttons: [
+                            { extend: "copyHtml5", text: "复制" },
+                            { extend: "excelHtml5", text: "导出EXCEL" }
+                            //{ extend: "csvHtml5", text: "导出CSV" },
+                            //{ extend: "pdfHtml5", text: "导出PDF" }
+                        ]
+                    }
+                ]
+            });
+
+            editor.on('initCreate', function () {
+                editor.show(); //Shows all fields
+                editor.field('CompanyId').enable();
+            });
+
+            editor.on('initEdit', function () {
+                editor.show(); //Shows all fields
+                //editor.hide('password');
+                editor.field('CompanyId').disable();
+            });
+
+            editor.on('preSubmit', function (e, o, action) {
+                if (action !== 'remove') {
+                    $.each(o.data, function (key, values) {
+                        if (!(typeof ($('#DTE_Field_CompanyId').select2('data')[0]) == "undefined")) {
+                            o.data[key]['Company'] = $('#DTE_Field_CompanyId').select2('data')[0].text;
+                        }
+
+                    });
+                }
+            });
+            $('#myTable')
+                .on('error.dt', function (e, settings, techNote, message) {
+                    if (e.type = 'error') {
+                        toastr.error(settings.jqXHR.responseText, "", { target: '.page-content-body' });
+                    }
+                });
+
+            $('#Search').click(function () {
+                var items = $(this).parents('.booking-search').find('.fiter');
+                $.each(items, function (index, obj) {
+                    var i = $(obj).attr('data-column');
+                    var name = $(obj).attr('data-name') + '';
+                    var val = $('#col' + i + '_filter').val();
+                    if (val === null)
+                        val = '';
+                    var index = $('#myTable').DataTable().columns().dataSrc().indexOf(name)
+                    var selectot = '.search-' + index;
+                    if ($(selectot).length === 0) {
+                        $('#myTable').DataTable().column(index).search(val, false, false);
+                    }
+                    else {
+                        $('#myTable').DataTable().column($(selectot)).search(val, false, false);
+                    }
+                });
+
+                $('#myTable').DataTable().columns().search().draw();
+            });
+        });
+
+        function DepartmentOnOff(Id)
+        {
+            $.ajax({
+                    url: "@Url.Action("OnOff", "Department")",    //请求的url地址
+                    dataType: "json",   //返回格式为json
+                    async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                    data: { "Id": Id },   //参数值,键值对
+                    type: "GET",   //请求方式
+                    beforeSend: function () {
+                        //请求前的处理
+                    },
+                    success: function (req) {
+                        //请求成功时处理
+                        if (req.Result)
+                        {
+                            toastr.success(req.Message);
+                        }
+                        else
+                        {
+                            toastr.error(req.Message);
+                        }
+                    },
+                    complete: function () {
+                        //请求完成的处理
+                        $('#Search').click();
+                    },
+                    error: function (res) {
+                        //请求出错处理
+                    }
+                });
+        }
+
+        function Resize() {
+
+            $('#myTable').DataTable()
+                .columns.adjust()
+                .responsive.recalc();
+        }
+    </script>
+}

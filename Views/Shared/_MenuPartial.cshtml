@@ -1,0 +1,142 @@
+﻿<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 10px">
+
+    <li class="nav-item  start active open">
+        <a class="ajaxify" href="@Url.Action("Index", "Home")">
+            <i class=" font-blue-soft font-lg fa fa-home"></i>
+            <span class="title">主页</span>
+            <span class="selected"></span>
+        </a>
+    </li>
+
+    <li class="nav-item open ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="font-blue-soft font-lg fa fa-cogs"></i>
+            <span class="title">系统管理</span>
+            <span class="arrow open"></span>
+        </a>
+        <ul class="sub-menu" style="display:block">
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("UserIndex","System")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    账号管理
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("RoleIndex","System")">    
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    角色管理
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("PermissionIndex","System")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    权限管理
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="nav-item open">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="font-blue-soft font-lg fa fa-tasks"></i>
+            <span class="title">人事管理</span>
+            <span class="arrow open"></span>
+        </a>
+        <ul class="sub-menu" style="display:block">
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    人员档案
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Company")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    公司档案
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Department")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    仓/部门档案
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Position")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    岗位档案
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Supplier")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    供应商档案
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Attendance")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    考勤打卡
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","TransInnerDepart")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    仓内调岗
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EntryIndex","EmployeeOperation")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    人员入职记录
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("DimissionIndex","EmployeeOperation")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    人员离职记录
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EmployeeImageUploadIndex","Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    人脸上传
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("EmployeeQRCodeIndex","Employee")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    获取二维码
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","Device")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    设备管理
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","EmployeeDevice")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    员工设备绑定
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","WorkGroup")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    工作组管理
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="ajaxify" href="@Url.Action("Index","WorkGroupDetail")">
+                    <i class="font-blue-soft font-lg glyphicon glyphicon-th-list"></i>
+                    工作组组员管理
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- END SIDEBAR MENU -->

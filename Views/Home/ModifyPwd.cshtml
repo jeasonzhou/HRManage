@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "修改密码";
+    Layout = ViewBag.Layout;
+}
+
+<div class="page-content-body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="col-md-12 col-xs-12">
+
+                        <label class="control-label">原密码:</label>
+                        <div class="input-icon">
+                            <input type="password" id="oldPwd">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <label class="control-label">新密码:</label>
+                        <div class="input-icon">
+                            <input type="password" id="newPwd">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <label class="control-label">确认新密码:</label>
+                        <div class="input-icon">
+                            <input type="password" id="confirmPwd">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Submit">提交<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+    $('#Submit').click(function () {
+        var oldPwd = $('#oldPwd').val();
+        var newPwd = $('#newPwd').val();
+        var confirmPwd = $('#confirmPwd').val();
+        var errMsg = '';
+        if (oldPwd == '') {
+            errMsg += '原密码不允许为空;';
+        }
+        if (newPwd == '') {
+            errMsg += '新密码不允许为空;';
+        }
+        if (confirmPwd == '') {
+            errMsg += '确认密码不允许为空;';
+        }
+        if (errMsg != '') {
+            toastr.error(errMsg);
+            return;
+        }
+        if (newPwd == oldPwd) {
+            toastr.error('原密码与新密码相同,无需修改');
+            return;
+        }
+        if (newPwd != confirmPwd) {
+            toastr.error('新密码与确认密码内容不同');
+            return;
+        }
+        ModifyPwd(oldPwd, newPwd);
+    });
+
+    function ModifyPwd(oldPwd, newPwd) {
+        $.ajax({
+            url: "@Url.Action("ModifyPwd", "Infra")",    //请求的url地址
+            dataType: "json",   //返回格式为json
+            async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            data: { "oldPwd": oldPwd, "newPwd": newPwd },   //参数值,键值对
+            type: "Get",   //请求方式
+            beforeSend: function () {
+                //请求前的处理
+            },
+            success: function (req) {
+                //请求成功时处理
+                if (req.Result) {
+                    toastr.success(req.message);
+                    setTimeout(function () {
+                        window.location.href = "@Url.Action("logout", "Home")";
+                    }, 3000);
+
+                }
+                else {
+                    toastr.error(req.message);
+                }
+            },
+            complete: function () {
+                //请求完成的处理
+            },
+            error: function (res) {
+                //请求出错处理
+            }
+        });
+    }
+    </script>
+}
+

@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "工段报到";
+    Layout = ViewBag.Layout;
+}
+
+<div class="page-content-body" id="page">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="booking-search">
+                <div class="row form-group">
+                    <div class="col-md-12 col-xs-12">
+
+                        <label class="control-label">员工二维码:</label>
+                        <div class="input-icon">
+                            <input type="text" id="EmployeeId">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn green btn-block  margin-bottom-20" id="Submit">提交<i class="m-icon-swapright m-icon-white"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+
+        $("#EmployeeId").focus();
+        $('#Submit').click(function () {
+            var qrCode = $('#EmployeeId').val();
+            CreateWorkGroupDetail(qrCode);
+        });
+
+        $('#EmployeeId').bind('keydown', function (event) {
+            if (event.keyCode == "13") {
+                event.preventDefault();
+                event.stopPropagation();
+                var val = $.trim($("#EmployeeId").val());
+                if (val.length == 0) {
+                    $("#EmployeeId").val('');
+                    $("#EmployeeId").focus();
+                    toastr.warning("长度不对", "", { target: '#page' });
+                }
+                else {
+                    CreateWorkGroupDetail(val);
+                }
+            }
+        });
+        });
+        function CreateWorkGroupDetail(qrCode) {
+            var el = $("#page");
+            App.blockUI({
+                target: el,
+                animate: true,
+                overlayColor: 'none'
+            });
+            $.ajax({
+            url: "@Url.Action("CreateWorkGroupDetail", "Infra")",    //请求的url地址
+            dataType: "json",   //返回格式为json
+            async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            data: { "qrCode": qrCode},   //参数值,键值对
+            type: "Get",   //请求方式
+            beforeSend: function () {
+                //请求前的处理
+            },
+                success: function (req) {
+                App.unblockUI(el);
+                //请求成功时处理
+                if (req.Result) {
+                    toastr.success(req.Message, '', { target: '#page' });
+                }
+                else {
+                    toastr.error(req.Message, '', { target: '#page' });
+                    }
+                    $("#EmployeeId").val('');
+                    $("#EmployeeId").focus();
+            },
+            complete: function () {
+                //请求完成的处理
+            },
+            error: function (res) {
+                //请求出错处理
+                App.unblockUI(el);
+                toastr.warning("系统繁忙", '', { target: '#page' });
+                $("#EmployeeId").val('');
+                $("#EmployeeId").focus();
+            }
+        });
+        }
+    </script>
+}
+
